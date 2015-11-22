@@ -1,4 +1,4 @@
-@relation women
+@relation "women-weka.filters.unsupervised.attribute.StringToWordVector-weka.filters.unsupervised.Reorder-R2-last,1"
 
 @attribute article string
 @attribute class-attr {0,1}
