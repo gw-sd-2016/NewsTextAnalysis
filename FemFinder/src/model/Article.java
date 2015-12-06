@@ -52,6 +52,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article[Title: " + title + ", Description: " + description + ", Link: " + link + ", Author: " + author + "]";
+        return "Article[Title: " + title + ", Description: " + description + ", Link: " + link + ", Author: " + author
+                + "]";
     }
 }
