@@ -1,0 +1,7 @@
+#feedInputBox {
+    -fx-min-width: 20em;
+}
+
+#inputContainer {
+    -fx-alignment: center;
+}
