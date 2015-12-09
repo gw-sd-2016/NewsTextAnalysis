@@ -9,6 +9,7 @@ public class Article {
     String description;
     String link;
     String author;
+    String pubDate;
 
     /*--- GET & SET TITLE ---*/
 
@@ -50,9 +51,19 @@ public class Article {
         this.author = author;
     }
 
+    /*--- GET & SET DATE PUBLISHED ---*/
+
+    public String getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
+    }
+
     @Override
     public String toString() {
         return "Article[Title: " + title + ", Description: " + description + ", Link: " + link + ", Author: " + author
-                + "]";
+                +  ", Date Published: " + pubDate + "]";
     }
 }

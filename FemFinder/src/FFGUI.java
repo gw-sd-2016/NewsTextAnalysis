@@ -1,3 +1,9 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import model.Article;
+import model.Feed;
+import controller.FeedParser;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,21 +25,40 @@ public class FFGUI extends Application {
 
         //input rss feed url
         Label inputFeed = new Label("RSS Feed: ");
-        TextField feedURL = new TextField();
-        feedURL.setId("feedInputBox");
+        final TextField feedUrl = new TextField();
+        feedUrl.setId("feedInputBox");
         Button filter = new Button("Filter");
 
         //hold all input elements
         HBox inputContainer = new HBox();
         inputContainer.setId("inputContainer");
-        inputContainer.getChildren().addAll(inputFeed, feedURL, filter);
+        inputContainer.getChildren().addAll(inputFeed, feedUrl, filter);
+
+        filter.setOnAction(
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        //get the rss feed url from the text area
+                        String rssUrl = feedUrl.getText();
+
+                        //create a new FeedParser to parse feed
+                        FeedParser parser = new FeedParser(rssUrl);
+                        Feed feed = parser.parseFeed();
+                        //TODO: add feed to rssFeed VBox
+                        System.out.println(feed);
+                        for(Article article : feed.getArticles()) {
+                            System.out.println(article);
+                        }
+                    }
+                }
+        );
 
         //rss feed
-        VBox feed = new VBox();
+        VBox rssFeed = new VBox();
 
         //hold rss feed
         ScrollPane feedContainer = new ScrollPane();
-        feedContainer.setContent(feed);
+        feedContainer.setContent(rssFeed);
 
         //add all elements to border pane
         BorderPane pane = new BorderPane();

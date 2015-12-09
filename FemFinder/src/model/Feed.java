@@ -12,7 +12,7 @@ public class Feed {
     final String link;
     final String description;
     final String copyright;
-    final String datePublished;
+    final String pubDate;
 
     final List<Article> articles = new ArrayList<Article>();
 
@@ -21,7 +21,7 @@ public class Feed {
         this.link = link;
         this.description = description;
         this.copyright = copyright;
-        this.datePublished = datePublished;
+        this.pubDate = datePublished;
     }
 
     /*--- GETTERS ---*/
@@ -46,13 +46,13 @@ public class Feed {
         return copyright;
     }
 
-    public String getDatePublished() {
-        return datePublished;
+    public String getPubDate() {
+        return pubDate;
     }
 
     @Override
     public String toString() {
-        return "Feed[Title: " + title + ", Link: " + link + ", Description" + description + ", Copyright: " + copyright
-                + ", Date Published: " + datePublished + "]";
+        return "Feed[Title: " + title + ", Link: " + link + ", Description: " + description + ", Copyright: "
+                + copyright + ", Date Published: " + pubDate + "]";
     }
 }
