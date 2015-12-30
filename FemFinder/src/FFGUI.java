@@ -3,6 +3,7 @@ import javafx.event.EventHandler;
 import model.Article;
 import model.Feed;
 import controller.FeedParser;
+import controller.TextExtraction;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.xml.soap.Text;
 
 /**
  * Created by ellenlouie on 11/29/15.
@@ -44,10 +47,13 @@ public class FFGUI extends Application {
                         //create a new FeedParser to parse feed
                         FeedParser parser = new FeedParser(rssUrl);
                         Feed feed = parser.parseFeed();
-                        //TODO: add feed to rssFeed VBox
+                        //TODO: add feed AND ARTICLES to rssFeed VBox
                         System.out.println(feed);
                         for(Article article : feed.getArticles()) {
-                            System.out.println(article);
+                            TextExtraction te = new TextExtraction();
+                            String plainText = te.getPlainText(article.getLink());
+                            System.out.println(plainText);
+                            //System.out.println(article);
                         }
                     }
                 }
