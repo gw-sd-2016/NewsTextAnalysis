@@ -17,6 +17,7 @@ public class TextExtraction {
 
             article = ArticleExtractor.INSTANCE.getText(url);
 
+            //TODO CRITICAL: MAKE THE REPLACEMENTS WORK, REMOVING NEW LINES AND ' ARE NOT WORKING
             //need to replace for Weka .arff file compatibility
             article.replace("'", "’");
 

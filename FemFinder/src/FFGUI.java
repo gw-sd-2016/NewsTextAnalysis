@@ -1,3 +1,4 @@
+import controller.MachineLearning;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import model.Article;
@@ -37,6 +38,7 @@ public class FFGUI extends Application {
         inputContainer.setId("inputContainer");
         inputContainer.getChildren().addAll(inputFeed, feedUrl, filter);
 
+        //TODO: create some kind of "processing..." modal to popup while this method processes
         filter.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
@@ -47,13 +49,19 @@ public class FFGUI extends Application {
                         //create a new FeedParser to parse feed
                         FeedParser parser = new FeedParser(rssUrl);
                         Feed feed = parser.parseFeed();
+
+                        //create new arff file to add articles
+                        MachineLearning ml = new MachineLearning();
+                        ml.createArffFile();
+
                         //TODO: add feed AND ARTICLES to rssFeed VBox
                         System.out.println(feed);
                         for(Article article : feed.getArticles()) {
                             TextExtraction te = new TextExtraction();
                             String plainText = te.getPlainText(article.getLink());
-                            System.out.println(plainText);
-                            //System.out.println(article);
+
+                            //append plain text to arff file for weka processing
+                            ml.addArticleToFile(plainText);
                         }
                     }
                 }
