@@ -1,5 +1,9 @@
 package controller;
 
+import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.StringToWordVector;
+
 import java.io.*;
 
 /**
@@ -15,14 +19,10 @@ public class MachineLearning {
         try {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("newsfeed.arff"), "UTF-8"));
             writer.write(arffFileHeader);
+
+            writer.close();
         } catch(Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -31,16 +31,49 @@ public class MachineLearning {
 
         try {
             out = new BufferedWriter(new FileWriter("newsfeed.arff", true));
-            out.write(article + "\n\n");
+            out.write(article);
+
+            out.close();
         } catch(Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                out.close();
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
         }
+    }
+
+    //TODO: possibly change to a return list of all the articles that are related to women OR have a different function do that
+    public void classifyArticles(File file) {
+
+        BufferedReader in = null;
+        Instances stdTrain = null;
+        Instances stdTest = null;
+
+        try {
+            //read in both files
+            in = new BufferedReader(new FileReader("women-train.arff"));
+            Instances train = new Instances(in);
+
+            in = new BufferedReader(new FileReader("newsfeed.arff"));
+            Instances test = new Instances(in);
+
+            in.close();
+
+            //batch filtering with StringToWordVector
+            StringToWordVector filter = new StringToWordVector();
+            //initialize filter once with training set
+            filter.setInputFormat(train);
+
+            //configures filter based on training set and returns word vector & create new test set
+            stdTrain = Filter.useFilter(train, filter);
+            stdTest = Filter.useFilter(test, filter);
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        //set class attributes for datasets
+        //it is in the first place as opposed to the usual last because of the StringToWordVector filter
+        stdTrain.setClassIndex(0);
+        stdTest.setClassIndex(0);
+
 
     }
 }

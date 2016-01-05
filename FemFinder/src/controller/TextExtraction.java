@@ -5,6 +5,8 @@ import de.l3s.boilerpipe.extractors.ArticleExtractor;
 import java.net.URL;
 
 /**
+ * Class for extracting article plain text
+ *
  * Created by ellenlouie on 12/20/15.
  */
 public class TextExtraction {
@@ -17,14 +19,15 @@ public class TextExtraction {
 
             article = ArticleExtractor.INSTANCE.getText(url);
 
-            //TODO CRITICAL: MAKE THE REPLACEMENTS WORK, REMOVING NEW LINES AND ' ARE NOT WORKING
             //need to replace for Weka .arff file compatibility
-            article.replace("'", "’");
+            article = article.replace("'", "’");
+            article = article.replace("\n", " ");
 
         } catch(Exception e) {
             e.printStackTrace();
         }
-        //format text for Weka .arff file
+        //format text for Weka .arff filed
+        //REMEMBER THAT NEW LINE IS BEING ADDED AT END OF ARFF FILE
         return "'" + article + "',?\n";
     }
 }

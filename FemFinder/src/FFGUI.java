@@ -63,6 +63,8 @@ public class FFGUI extends Application {
                             //append plain text to arff file for weka processing
                             ml.addArticleToFile(plainText);
                         }
+                        //TODO: finish this later
+                        ml.classifyArticles();
                     }
                 }
         );

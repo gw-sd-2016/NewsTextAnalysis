@@ -14,6 +14,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
+ * Class for parsing XML RSS feeds using Java StAX (Streaming API for XML)
+ *
  * Created by ellenlouie on 12/9/15.
  */
 public class FeedParser {
