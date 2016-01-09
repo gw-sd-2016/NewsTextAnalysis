@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.xml.soap.Text;
+import java.io.File;
 
 /**
  * Created by ellenlouie on 11/29/15.
@@ -63,8 +64,9 @@ public class FFGUI extends Application {
                             //append plain text to arff file for weka processing
                             ml.addArticleToFile(plainText);
                         }
-                        //TODO: finish this later
-                        ml.classifyArticles();
+                        //classify articles and filter out those that are not related to women
+                        File labeledArticles = ml.classifyArticles();
+                        ml.filterArticles(labeledArticles);
                     }
                 }
         );

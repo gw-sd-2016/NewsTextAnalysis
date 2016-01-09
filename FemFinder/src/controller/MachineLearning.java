@@ -1,6 +1,8 @@
 package controller;
 
+import weka.classifiers.trees.J48;
 import weka.core.Instances;
+import weka.core.converters.CSVSaver;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 
@@ -39,12 +41,13 @@ public class MachineLearning {
         }
     }
 
-    //TODO: possibly change to a return list of all the articles that are related to women OR have a different function do that
-    public void classifyArticles(File file) {
+    public File classifyArticles() {
 
         BufferedReader in = null;
         Instances stdTrain = null;
         Instances stdTest = null;
+        Instances labeled = null;
+        File labeledArticles = new File("labeledarticles.csv");
 
         try {
             //read in both files
@@ -65,15 +68,37 @@ public class MachineLearning {
             stdTrain = Filter.useFilter(train, filter);
             stdTest = Filter.useFilter(test, filter);
 
+            //set class attributes for datasets
+            //it is in the first place as opposed to the usual last because of the StringToWordVector filter
+            stdTrain.setClassIndex(0);
+            stdTest.setClassIndex(0);
+
+            J48 tree = new J48();
+            tree.buildClassifier(stdTrain);
+            labeled = new Instances(stdTest);
+
+            //label article instances
+            for(int i = 0; i < stdTest.numInstances(); i++) {
+                //classify each instance and set the class attribute
+                double classLabel = tree.classifyInstance(stdTest.instance(i));
+                labeled.instance(i).setClassValue(classLabel);
+            }
+
+            //save labeled articles to CSV file
+            CSVSaver saver = new CSVSaver();
+            saver.setInstances(labeled);
+            saver.setFile(labeledArticles);
+            saver.writeBatch();
+
+            //TODO: delete files that were created that are no longer needed
+
         } catch(Exception e) {
             e.printStackTrace();
         }
+        return labeledArticles;
+    }
 
-        //set class attributes for datasets
-        //it is in the first place as opposed to the usual last because of the StringToWordVector filter
-        stdTrain.setClassIndex(0);
-        stdTest.setClassIndex(0);
-
+    public void filterArticles(File file) {
 
     }
 }
