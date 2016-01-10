@@ -17,8 +17,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.xml.soap.Text;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by ellenlouie on 11/29/15.
@@ -64,9 +64,14 @@ public class FFGUI extends Application {
                             //append plain text to arff file for weka processing
                             ml.addArticleToFile(plainText);
                         }
-                        //classify articles and filter out those that are not related to women
+                        //classify articles
                         File labeledArticles = ml.classifyArticles();
-                        ml.filterArticles(labeledArticles);
+
+                        //extract out class attributes
+                        ArrayList classAttr = new ArrayList();
+                        classAttr = ml.extractClassAttributes(labeledArticles);
+
+                        
                     }
                 }
         );

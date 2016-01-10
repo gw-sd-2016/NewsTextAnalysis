@@ -7,6 +7,7 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by ellenlouie on 12/31/15.
@@ -98,7 +99,30 @@ public class MachineLearning {
         return labeledArticles;
     }
 
-    public void filterArticles(File file) {
+    public ArrayList<String> extractClassAttributes(File file) {
 
+        BufferedReader in = null;
+        String line = "";
+        String splitBy = ",";
+        ArrayList<String> classAttributes = new ArrayList<>();
+
+        try {
+            //read in csv file
+            in = new BufferedReader(new FileReader(file));
+
+            //skip the first line that consists of the mappings for each attribute
+            in.readLine();
+
+            while((line = in.readLine()) != null) {
+                //use comma as separator for line
+                String[] article = line.split(splitBy);
+                classAttributes.add(article[0]);
+            }
+
+            in.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return classAttributes;
     }
 }
