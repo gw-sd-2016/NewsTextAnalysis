@@ -16,9 +16,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import weka.filters.unsupervised.attribute.InterquartileRange;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ellenlouie on 11/29/15.
@@ -56,6 +58,7 @@ public class FFGUI extends Application {
                         ml.createArffFile();
 
                         //TODO: add feed AND ARTICLES to rssFeed VBox
+                        //TODO: take out when complete
                         System.out.println(feed);
                         for(Article article : feed.getArticles()) {
                             TextExtraction te = new TextExtraction();
@@ -68,10 +71,24 @@ public class FFGUI extends Application {
                         File labeledArticles = ml.classifyArticles();
 
                         //extract out class attributes
-                        ArrayList classAttr = new ArrayList();
-                        classAttr = ml.extractClassAttributes(labeledArticles);
+                        ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
 
-                        
+                        //create new list of articles that will hold articles related to women
+                        List<Article> womenArticles = new ArrayList<Article>();
+
+                        //filter out articles unrelated to women
+                        if(classAttr.size() == feed.getArticles().size()) {
+                            for(int i = 0; i < classAttr.size(); i++) {
+                                if(classAttr.get(i) == 1) {
+                                    womenArticles.add(feed.getArticles().get(i));
+                                }
+                            }
+                        }
+
+                        //TODO: take out when complete
+                        for(Article article : womenArticles) {
+                            System.out.println(article);
+                        }
                     }
                 }
         );

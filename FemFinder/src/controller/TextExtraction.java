@@ -27,7 +27,6 @@ public class TextExtraction {
             e.printStackTrace();
         }
         //format text for Weka .arff filed
-        //REMEMBER THAT NEW LINE IS BEING ADDED AT END OF ARFF FILE
         return "'" + article + "',?\n";
     }
 }

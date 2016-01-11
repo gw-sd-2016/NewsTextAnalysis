@@ -91,7 +91,7 @@ public class MachineLearning {
             saver.setFile(labeledArticles);
             saver.writeBatch();
 
-            //TODO: delete files that were created that are no longer needed
+            //TODO: delete files that were created that are no longer needed when program closes
 
         } catch(Exception e) {
             e.printStackTrace();
@@ -99,12 +99,12 @@ public class MachineLearning {
         return labeledArticles;
     }
 
-    public ArrayList<String> extractClassAttributes(File file) {
+    public ArrayList<Integer> extractClassAttributes(File file) {
 
         BufferedReader in = null;
         String line = "";
         String splitBy = ",";
-        ArrayList<String> classAttributes = new ArrayList<>();
+        ArrayList<Integer> classAttributes = new ArrayList<>();
 
         try {
             //read in csv file
@@ -114,9 +114,9 @@ public class MachineLearning {
             in.readLine();
 
             while((line = in.readLine()) != null) {
-                //use comma as separator for line
                 String[] article = line.split(splitBy);
-                classAttributes.add(article[0]);
+                //change back to int after being split as a string
+                classAttributes.add(Integer.parseInt(article[0]));
             }
 
             in.close();
