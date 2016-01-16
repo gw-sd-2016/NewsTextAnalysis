@@ -1,6 +1,7 @@
+import com.sun.deploy.ui.ProgressDialog;
 import controller.MachineLearning;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.concurrent.Task;
+import javafx.scene.control.*;
 import model.Article;
 import model.Feed;
 import controller.FeedParser;
@@ -8,15 +9,10 @@ import controller.TextExtraction;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import weka.filters.unsupervised.attribute.InterquartileRange;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,69 +37,106 @@ public class FFGUI extends Application {
         inputContainer.setId("inputContainer");
         inputContainer.getChildren().addAll(inputFeed, feedUrl, filter);
 
-        //TODO: create some kind of "processing..." modal to popup while this method processes
-        filter.setOnAction(
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        //get the rss feed url from the text area
-                        String rssUrl = feedUrl.getText();
+        VBox feedInfo = new VBox();
+        VBox articles = new VBox();
 
-                        //create a new FeedParser to parse feed
-                        FeedParser parser = new FeedParser(rssUrl);
-                        Feed feed = parser.parseFeed();
+        //hold articles
+        ScrollPane articleContainer = new ScrollPane();
+        articleContainer.setContent(articles);
 
-                        //create new arff file to add articles
-                        MachineLearning ml = new MachineLearning();
-                        ml.createArffFile();
+        //hold feed info and articles
+        VBox rssFeed = new VBox();
+        rssFeed.getChildren().addAll(feedInfo, articleContainer);
 
-                        //TODO: add feed AND ARTICLES to rssFeed VBox
-                        //TODO: take out when complete
-                        System.out.println(feed);
-                        for(Article article : feed.getArticles()) {
-                            TextExtraction te = new TextExtraction();
-                            String plainText = te.getPlainText(article.getLink());
+        filter.setOnAction(e -> {
+                    //Dialog dialog = new Dialog();
+                    //ProgressBar progressBar = new ProgressBar();
 
-                            //append plain text to arff file for weka processing
-                            ml.addArticleToFile(plainText);
-                        }
-                        //classify articles
-                        File labeledArticles = ml.classifyArticles();
+                    //get the rss feed url from the text area
+                    String rssUrl = feedUrl.getText();
 
-                        //extract out class attributes
-                        ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
+                    //create a new FeedParser to parse feed
+                    FeedParser parser = new FeedParser(rssUrl);
+                    Feed feed = parser.parseFeed();
 
-                        //create new list of articles that will hold articles related to women
-                        List<Article> womenArticles = new ArrayList<Article>();
+                    Task<List<Article>> task = new Task<List<Article>>() {
+                        @Override
+                        protected List<Article> call() throws Exception {
+                            //create new arff file to add articles
+                            MachineLearning ml = new MachineLearning();
+                            ml.createArffFile();
 
-                        //filter out articles unrelated to women
-                        if(classAttr.size() == feed.getArticles().size()) {
-                            for(int i = 0; i < classAttr.size(); i++) {
-                                if(classAttr.get(i) == 1) {
-                                    womenArticles.add(feed.getArticles().get(i));
+                            System.out.println("1");
+
+                            for (Article article : feed.getArticles()) {
+                                TextExtraction te = new TextExtraction();
+                                String plainText = te.getPlainText(article.getLink());
+
+                                //append plain text to arff file for weka processing
+                                ml.addArticleToFile(plainText);
+                            }
+
+                            System.out.println("2");
+
+                            //classify articles
+                            File labeledArticles = ml.classifyArticles();
+
+                            //extract out class attributes
+                            ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
+
+                            //create new list of articles that will hold articles related to women
+                            List<Article> womenArticles = new ArrayList<>();
+
+                            //filter out articles unrelated to women
+                            if (classAttr.size() == feed.getArticles().size()) {
+                                for (int i = 0; i < classAttr.size(); i++) {
+                                    if (classAttr.get(i) == 1) {
+                                        womenArticles.add(feed.getArticles().get(i));
+                                    }
                                 }
                             }
+                            System.out.println("3");
+                            return womenArticles;
                         }
+                    };
 
-                        //TODO: take out when complete
+                    task.setOnSucceeded(event -> {
+                        //dialog.hide();
+
+                        System.out.println("4");
+
+                        //add feed information to ui
+                        Label feedTitle = new Label(feed.getTitle());
+                        Label feedLink = new Label(feed.getLink());
+                        Label feedDescription = new Label(feed.getDescription());
+                        Label feedCopyright = new Label(feed.getCopyright());
+                        Label feedPubDate = new Label(feed.getPubDate());
+                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate, new Separator());
+
+                        List<Article> womenArticles = task.getValue();
+
                         for(Article article : womenArticles) {
-                            System.out.println(article);
+                            Label articleTitle = new Label(article.getTitle());
+                            Label articlePubDate = new Label(article.getPubDate());
+                            Label articleLink = new Label(article.getLink());
+
+                            articles.getChildren().addAll(articleTitle, articlePubDate, articleLink);
                         }
-                    }
+                    });
+
+                    /*dialog.setContentText("Processing...");
+                    dialog.setGraphic(progressBar);
+                    dialog.show();*/
+
+                    Thread thread = new Thread(task);
+                    thread.start();
                 }
         );
-
-        //rss feed
-        VBox rssFeed = new VBox();
-
-        //hold rss feed
-        ScrollPane feedContainer = new ScrollPane();
-        feedContainer.setContent(rssFeed);
 
         //add all elements to border pane
         BorderPane pane = new BorderPane();
         pane.setTop(inputContainer);
-        pane.setCenter(feedContainer);
+        pane.setCenter(rssFeed);
 
         Scene scene = new Scene(pane, 400, 500);
         scene.getStylesheets().add("FFStylesheet.css");
