@@ -1,5 +1,6 @@
 import com.sun.deploy.ui.ProgressDialog;
 import controller.MachineLearning;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.*;
 import model.Article;
@@ -49,8 +50,7 @@ public class FFGUI extends Application {
         rssFeed.getChildren().addAll(feedInfo, articleContainer);
 
         filter.setOnAction(e -> {
-                    //Dialog dialog = new Dialog();
-                    //ProgressBar progressBar = new ProgressBar();
+                    Alert alert = new Alert(Alert.AlertType.NONE);
 
                     //get the rss feed url from the text area
                     String rssUrl = feedUrl.getText();
@@ -66,8 +66,6 @@ public class FFGUI extends Application {
                             MachineLearning ml = new MachineLearning();
                             ml.createArffFile();
 
-                            System.out.println("1");
-
                             for (Article article : feed.getArticles()) {
                                 TextExtraction te = new TextExtraction();
                                 String plainText = te.getPlainText(article.getLink());
@@ -75,8 +73,6 @@ public class FFGUI extends Application {
                                 //append plain text to arff file for weka processing
                                 ml.addArticleToFile(plainText);
                             }
-
-                            System.out.println("2");
 
                             //classify articles
                             File labeledArticles = ml.classifyArticles();
@@ -95,15 +91,12 @@ public class FFGUI extends Application {
                                     }
                                 }
                             }
-                            System.out.println("3");
                             return womenArticles;
                         }
                     };
 
                     task.setOnSucceeded(event -> {
-                        //dialog.hide();
-
-                        System.out.println("4");
+                        alert.close();
 
                         //add feed information to ui
                         Label feedTitle = new Label(feed.getTitle());
@@ -115,7 +108,7 @@ public class FFGUI extends Application {
 
                         List<Article> womenArticles = task.getValue();
 
-                        for(Article article : womenArticles) {
+                        for (Article article : womenArticles) {
                             Label articleTitle = new Label(article.getTitle());
                             Label articlePubDate = new Label(article.getPubDate());
                             Label articleLink = new Label(article.getLink());
@@ -124,9 +117,13 @@ public class FFGUI extends Application {
                         }
                     });
 
-                    /*dialog.setContentText("Processing...");
-                    dialog.setGraphic(progressBar);
-                    dialog.show();*/
+                    ProgressBar progressBar = new ProgressBar();
+                    alert.setTitle("Busy");
+                    alert.setHeaderText("Processing...");
+                    alert.setContentText("Analyzing articles...");
+                    alert.setGraphic(progressBar);
+                    alert.getButtonTypes().add(ButtonType.CLOSE);
+                    alert.show();
 
                     Thread thread = new Thread(task);
                     thread.start();
