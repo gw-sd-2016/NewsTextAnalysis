@@ -1,6 +1,4 @@
-import com.sun.deploy.ui.ProgressDialog;
 import controller.MachineLearning;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.*;
 import model.Article;
@@ -49,7 +47,7 @@ public class FFGUI extends Application {
         VBox rssFeed = new VBox();
         rssFeed.getChildren().addAll(feedInfo, articleContainer);
 
-        filter.setOnAction(e -> {
+        filter.setOnAction(e1 -> {
                     Alert alert = new Alert(Alert.AlertType.NONE);
 
                     //get the rss feed url from the text area
@@ -95,25 +93,34 @@ public class FFGUI extends Application {
                         }
                     };
 
-                    task.setOnSucceeded(event -> {
+                    task.setOnSucceeded(e2 -> {
                         alert.close();
 
                         //add feed information to ui
                         Label feedTitle = new Label(feed.getTitle());
-                        Label feedLink = new Label(feed.getLink());
+                        Hyperlink feedLink = new Hyperlink(feed.getLink());
                         Label feedDescription = new Label(feed.getDescription());
                         Label feedCopyright = new Label(feed.getCopyright());
                         Label feedPubDate = new Label(feed.getPubDate());
-                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate, new Separator());
+
+                        feedLink.setOnAction(e3 -> {
+                            getHostServices().showDocument(feed.getLink());
+                        });
+
+                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate);
 
                         List<Article> womenArticles = task.getValue();
 
                         for (Article article : womenArticles) {
                             Label articleTitle = new Label(article.getTitle());
                             Label articlePubDate = new Label(article.getPubDate());
-                            Label articleLink = new Label(article.getLink());
+                            Hyperlink articleLink = new Hyperlink(article.getLink());
 
-                            articles.getChildren().addAll(articleTitle, articlePubDate, articleLink);
+                            articleLink.setOnAction(e4 -> {
+                                getHostServices().showDocument(article.getLink());
+                            });
+
+                            articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
                         }
                     });
 
@@ -140,5 +147,10 @@ public class FFGUI extends Application {
         primaryStage.setTitle("FemFinder");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //TODO delete files
+        primaryStage.setOnCloseRequest(e5 -> {
+
+        });
     }
 }
