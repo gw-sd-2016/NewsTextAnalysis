@@ -1,7 +1,16 @@
 #feedInputBox {
-    -fx-min-width: 20em;
+    -fx-min-width: 50em;
 }
 
 #inputContainer {
     -fx-alignment: center;
+}
+
+#feedInfo {
+    -fx-alignment: center;
+}
+
+#titleText {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
 }

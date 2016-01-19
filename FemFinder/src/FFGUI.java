@@ -37,10 +37,14 @@ public class FFGUI extends Application {
         inputContainer.getChildren().addAll(inputFeed, feedUrl, filter);
 
         VBox feedInfo = new VBox();
+        feedInfo.setId("feedInfo");
         VBox articles = new VBox();
 
         //hold articles
         ScrollPane articleContainer = new ScrollPane();
+        articleContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        articleContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        articleContainer.setFitToWidth(true);
         articleContainer.setContent(articles);
 
         //hold feed info and articles
@@ -98,6 +102,7 @@ public class FFGUI extends Application {
 
                         //add feed information to ui
                         Label feedTitle = new Label(feed.getTitle());
+                        feedTitle.setId("titleText");
                         Hyperlink feedLink = new Hyperlink(feed.getLink());
                         Label feedDescription = new Label(feed.getDescription());
                         Label feedCopyright = new Label(feed.getCopyright());
@@ -113,6 +118,7 @@ public class FFGUI extends Application {
 
                         for (Article article : womenArticles) {
                             Label articleTitle = new Label(article.getTitle());
+                            articleTitle.setId("titleText");
                             Label articlePubDate = new Label(article.getPubDate());
                             Hyperlink articleLink = new Hyperlink(article.getLink());
 
@@ -142,15 +148,16 @@ public class FFGUI extends Application {
         pane.setTop(inputContainer);
         pane.setCenter(rssFeed);
 
-        Scene scene = new Scene(pane, 400, 500);
+        Scene scene = new Scene(pane, 800, 700);
         scene.getStylesheets().add("FFStylesheet.css");
         primaryStage.setTitle("FemFinder");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
 
-        //TODO delete files
         primaryStage.setOnCloseRequest(e5 -> {
-
+            boolean result1 = new File("newsfeed.arff").delete();
+            boolean result2 = new File("labeledarticles.csv").delete();
         });
     }
 }
