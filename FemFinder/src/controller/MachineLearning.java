@@ -1,5 +1,8 @@
 package controller;
 
+import weka.attributeSelection.BestFirst;
+import weka.attributeSelection.CfsSubsetEval;
+import weka.classifiers.meta.AttributeSelectedClassifier;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
 import weka.core.converters.CSVSaver;
@@ -90,8 +93,6 @@ public class MachineLearning {
             saver.setInstances(labeled);
             saver.setFile(labeledArticles);
             saver.writeBatch();
-
-            //TODO: delete files that were created that are no longer needed when program closes
 
         } catch(Exception e) {
             e.printStackTrace();

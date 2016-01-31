@@ -42,7 +42,6 @@ public class FFGUI extends Application {
 
         //hold articles
         ScrollPane articleContainer = new ScrollPane();
-        articleContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         articleContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         articleContainer.setFitToWidth(true);
         articleContainer.setContent(articles);
@@ -51,7 +50,28 @@ public class FFGUI extends Application {
         VBox rssFeed = new VBox();
         rssFeed.getChildren().addAll(feedInfo, articleContainer);
 
+        //hold user classification system
+        VBox classifyContainer = new VBox();
+        classifyContainer.setId("classifyContainer");
+
+        Label classifyLabel1 = new Label("Is this article");
+        Label classifyLabel2 = new Label("related to women?");
+        classifyLabel1.getStyleClass().add("classifyLabels");
+        classifyLabel2.getStyleClass().add("classifyLabels");
+
+        Button updateModel = new Button("Update Model");
+
+        HBox optionsContainer = new HBox();
+        Label yes = new Label("Yes");
+        Label no = new Label("No");
+        yes.getStyleClass().add("options");
+        no.getStyleClass().add("options");
+        optionsContainer.getChildren().addAll(yes, no);
+
         filter.setOnAction(e1 -> {
+                    feedInfo.getChildren().clear();
+                    articles.getChildren().clear();
+
                     Alert alert = new Alert(Alert.AlertType.NONE);
 
                     //get the rss feed url from the text area
@@ -116,6 +136,8 @@ public class FFGUI extends Application {
 
                         List<Article> womenArticles = task.getValue();
 
+                        classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
+
                         for (Article article : womenArticles) {
                             Label articleTitle = new Label(article.getTitle());
                             articleTitle.setId("titleText");
@@ -127,7 +149,24 @@ public class FFGUI extends Application {
                             });
 
                             articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
+
+                            HBox options = new HBox();
+
+                            final ToggleGroup group = new ToggleGroup();
+
+                            RadioButton yesbtn = new RadioButton();
+                            yesbtn.getStyleClass().add("options");
+                            yesbtn.setToggleGroup(group);
+
+                            RadioButton nobtn = new RadioButton();
+                            nobtn.getStyleClass().add("options");
+                            nobtn.setToggleGroup(group);
+
+                            options.getChildren().addAll(yesbtn, nobtn);
+                            classifyContainer.getChildren().add(options);
                         }
+                        classifyContainer.getChildren().add(updateModel);
+                        classifyContainer.setMaxHeight(feedInfo.getHeight() + articles.getHeight() + 50);
                     });
 
                     ProgressBar progressBar = new ProgressBar();
@@ -147,8 +186,9 @@ public class FFGUI extends Application {
         BorderPane pane = new BorderPane();
         pane.setTop(inputContainer);
         pane.setCenter(rssFeed);
+        pane.setRight(classifyContainer);
 
-        Scene scene = new Scene(pane, 800, 700);
+        Scene scene = new Scene(pane, 900, 800);
         scene.getStylesheets().add("FFStylesheet.css");
         primaryStage.setTitle("FemFinder");
         primaryStage.setScene(scene);

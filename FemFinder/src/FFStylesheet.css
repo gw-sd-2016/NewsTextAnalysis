@@ -1,3 +1,11 @@
+.classifyLabels {
+    -fx-font-weight: bold;
+}
+
+.options {
+    -fx-padding: 21;
+}
+
 #feedInputBox {
     -fx-min-width: 50em;
 }
@@ -7,6 +15,10 @@
 }
 
 #feedInfo {
+    -fx-alignment: center;
+}
+
+#classifyContainer {
     -fx-alignment: center;
 }
 
