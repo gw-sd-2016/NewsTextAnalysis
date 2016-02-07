@@ -1,8 +1,6 @@
 package controller;
 
-import weka.attributeSelection.BestFirst;
-import weka.attributeSelection.CfsSubsetEval;
-import weka.classifiers.meta.AttributeSelectedClassifier;
+import weka.classifiers.Classifier;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
 import weka.core.converters.CSVSaver;
@@ -32,11 +30,11 @@ public class MachineLearning {
         }
     }
 
-    public void addArticleToFile(String article) {
+    public void addArticleToFile(String file, String article) {
         BufferedWriter out = null;
 
         try {
-            out = new BufferedWriter(new FileWriter("newsfeed.arff", true));
+            out = new BufferedWriter(new FileWriter(file, true));
             out.write(article);
 
             out.close();

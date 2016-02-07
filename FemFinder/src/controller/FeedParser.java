@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.control.Alert;
 import model.Feed;
 import model.Article;
 
@@ -113,7 +114,10 @@ public class FeedParser {
                 }
             }
         } catch(XMLStreamException e) {
-            throw new RuntimeException(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Not a valid RSS feed!");
+            alert.setContentText("Please enter a valid RSS feed URL");
+            alert.showAndWait();
         }
         return feed;
     }

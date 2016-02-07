@@ -22,6 +22,9 @@ import java.util.List;
  */
 public class FFGUI extends Application {
 
+    //store list of classified articles
+    List<Article> womensArticles = null;
+
     @Override //Override the start method in the Application class
     public void start(final Stage primaryStage) {
 
@@ -36,19 +39,20 @@ public class FFGUI extends Application {
         inputContainer.setId("inputContainer");
         inputContainer.getChildren().addAll(inputFeed, feedUrl, filter);
 
+        BorderPane articlePane = new BorderPane();
+
         VBox feedInfo = new VBox();
         feedInfo.setId("feedInfo");
         VBox articles = new VBox();
 
-        //hold articles
+        //hold rss feed info, articles, and classification
         ScrollPane articleContainer = new ScrollPane();
         articleContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         articleContainer.setFitToWidth(true);
-        articleContainer.setContent(articles);
 
         //hold feed info and articles
         VBox rssFeed = new VBox();
-        rssFeed.getChildren().addAll(feedInfo, articleContainer);
+        rssFeed.getChildren().addAll(feedInfo, articles);
 
         //hold user classification system
         VBox classifyContainer = new VBox();
@@ -59,8 +63,6 @@ public class FFGUI extends Application {
         classifyLabel1.getStyleClass().add("classifyLabels");
         classifyLabel2.getStyleClass().add("classifyLabels");
 
-        Button updateModel = new Button("Update Model");
-
         HBox optionsContainer = new HBox();
         Label yes = new Label("Yes");
         Label no = new Label("No");
@@ -68,9 +70,20 @@ public class FFGUI extends Application {
         no.getStyleClass().add("options");
         optionsContainer.getChildren().addAll(yes, no);
 
+        articlePane.setCenter(rssFeed);
+        articlePane.setRight(classifyContainer);
+        articleContainer.setContent(articlePane);
+
+        Button addInstances = new Button("Submit");
+
+        //store toggle groups of radio buttons
+        List<ToggleGroup> listOfGroups = new ArrayList<>();
+
         filter.setOnAction(e1 -> {
                     feedInfo.getChildren().clear();
                     articles.getChildren().clear();
+                    classifyContainer.getChildren().clear();
+                    addInstances.setDisable(false);
 
                     Alert alert = new Alert(Alert.AlertType.NONE);
 
@@ -88,12 +101,12 @@ public class FFGUI extends Application {
                             MachineLearning ml = new MachineLearning();
                             ml.createArffFile();
 
-                            for (Article article : feed.getArticles()) {
+                            for(Article article : feed.getArticles()) {
                                 TextExtraction te = new TextExtraction();
-                                String plainText = te.getPlainText(article.getLink());
+                                String plainText = te.getUnclassifiedPlainText(article.getLink());
 
                                 //append plain text to arff file for weka processing
-                                ml.addArticleToFile(plainText);
+                                ml.addArticleToFile("newsfeed.arff", plainText);
                             }
 
                             //classify articles
@@ -103,17 +116,19 @@ public class FFGUI extends Application {
                             ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
 
                             //create new list of articles that will hold articles related to women
-                            List<Article> womenArticles = new ArrayList<>();
+                            //List<Article> womenArticles
+
+                            womensArticles = new ArrayList<>();
 
                             //filter out articles unrelated to women
                             if (classAttr.size() == feed.getArticles().size()) {
                                 for (int i = 0; i < classAttr.size(); i++) {
                                     if (classAttr.get(i) == 1) {
-                                        womenArticles.add(feed.getArticles().get(i));
+                                        womensArticles.add(feed.getArticles().get(i));
                                     }
                                 }
                             }
-                            return womenArticles;
+                            return womensArticles;
                         }
                     };
 
@@ -132,13 +147,13 @@ public class FFGUI extends Application {
                             getHostServices().showDocument(feed.getLink());
                         });
 
-                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate);
+                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate, new Separator());
 
-                        List<Article> womenArticles = task.getValue();
+                        List<Article> classifiedWomensArticles = task.getValue();
 
                         classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
 
-                        for (Article article : womenArticles) {
+                        for (Article article : classifiedWomensArticles) {
                             Label articleTitle = new Label(article.getTitle());
                             articleTitle.setId("titleText");
                             Label articlePubDate = new Label(article.getPubDate());
@@ -156,16 +171,20 @@ public class FFGUI extends Application {
 
                             RadioButton yesbtn = new RadioButton();
                             yesbtn.getStyleClass().add("options");
+                            yesbtn.setUserData("Yes");
                             yesbtn.setToggleGroup(group);
 
                             RadioButton nobtn = new RadioButton();
                             nobtn.getStyleClass().add("options");
+                            nobtn.setUserData("No");
                             nobtn.setToggleGroup(group);
+
+                            listOfGroups.add(group);
 
                             options.getChildren().addAll(yesbtn, nobtn);
                             classifyContainer.getChildren().add(options);
                         }
-                        classifyContainer.getChildren().add(updateModel);
+                        classifyContainer.getChildren().add(addInstances);
                         classifyContainer.setMaxHeight(feedInfo.getHeight() + articles.getHeight() + 50);
                     });
 
@@ -182,11 +201,46 @@ public class FFGUI extends Application {
                 }
         );
 
+        addInstances.setOnAction(e5 -> {
+
+            TextExtraction te = new TextExtraction();
+            MachineLearning ml = new MachineLearning();
+
+            Task<Void> task = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    if(listOfGroups.size() == womensArticles.size()) {
+                        for(int i = 0; i < listOfGroups.size(); i++) {
+                            if(listOfGroups.get(i).getSelectedToggle() == null) {
+                                System.out.println("Not clasified by user");
+                                continue;
+                            } else if(listOfGroups.get(i).getSelectedToggle().getUserData() == "Yes") {
+                                String plainText = te.getClassifiedPlainText(womensArticles.get(i).getLink(), 1);
+                                ml.addArticleToFile("women-train.arff", plainText);
+                                System.out.println("Yes!");
+                            } else if(listOfGroups.get(i).getSelectedToggle().getUserData() == "No") {
+                                String plainText = te.getClassifiedPlainText(womensArticles.get(i).getLink(), 0);
+                                ml.addArticleToFile("women-train.arff", plainText);
+                                System.out.println("No!");
+                            }
+                        }
+                    }
+                    return null;
+                }
+            };
+
+            task.setOnRunning(e6 -> {
+                addInstances.setDisable(true);
+            });
+
+            Thread thread = new Thread(task);
+            thread.start();
+        });
+
         //add all elements to border pane
         BorderPane pane = new BorderPane();
         pane.setTop(inputContainer);
-        pane.setCenter(rssFeed);
-        pane.setRight(classifyContainer);
+        pane.setCenter(articleContainer);
 
         Scene scene = new Scene(pane, 900, 800);
         scene.getStylesheets().add("FFStylesheet.css");
@@ -195,7 +249,7 @@ public class FFGUI extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest(e5 -> {
+        primaryStage.setOnCloseRequest(e7 -> {
             boolean result1 = new File("newsfeed.arff").delete();
             boolean result2 = new File("labeledarticles.csv").delete();
         });

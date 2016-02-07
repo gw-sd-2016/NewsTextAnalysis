@@ -11,7 +11,26 @@ import java.net.URL;
  */
 public class TextExtraction {
 
-    public String getPlainText(String link) {
+    public String getUnclassifiedPlainText(String link) {
+        String article = "";
+
+        try {
+            URL url = new URL(link);
+
+            article = ArticleExtractor.INSTANCE.getText(url);
+
+            //need to replace for Weka .arff file compatibility
+            article = article.replace("'", "’");
+            article = article.replace("\n", " ");
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        //format text for Weka .arff file
+        return "'" + article + "',?\n";
+    }
+
+    public String getClassifiedPlainText(String link, int classAttr) {
         String article = "";
 
         try {
@@ -27,6 +46,6 @@ public class TextExtraction {
             e.printStackTrace();
         }
         //format text for Weka .arff filed
-        return "'" + article + "',?\n";
+        return "'" + article + "'," + classAttr + "\n";
     }
 }
