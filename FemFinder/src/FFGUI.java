@@ -41,6 +41,12 @@ public class FFGUI extends Application {
 
         BorderPane articlePane = new BorderPane();
 
+        VBox donationContainer = new VBox(40);
+        donationContainer.getStyleClass().add("extras");
+
+        Label donationLabel = new Label("Want to help?");
+        donationLabel.setId("donationLabel");
+
         VBox feedInfo = new VBox();
         feedInfo.setId("feedInfo");
         VBox articles = new VBox();
@@ -56,12 +62,12 @@ public class FFGUI extends Application {
 
         //hold user classification system
         VBox classifyContainer = new VBox();
-        classifyContainer.setId("classifyContainer");
+        classifyContainer.getStyleClass().add("extras");
 
         Label classifyLabel1 = new Label("Is this article");
         Label classifyLabel2 = new Label("related to women?");
-        classifyLabel1.getStyleClass().add("classifyLabels");
-        classifyLabel2.getStyleClass().add("classifyLabels");
+        classifyLabel1.getStyleClass().add("classifyLabel");
+        classifyLabel2.getStyleClass().add("classifyLabel");
 
         HBox optionsContainer = new HBox();
         Label yes = new Label("Yes");
@@ -70,6 +76,7 @@ public class FFGUI extends Application {
         no.getStyleClass().add("options");
         optionsContainer.getChildren().addAll(yes, no);
 
+        articlePane.setLeft(donationContainer);
         articlePane.setCenter(rssFeed);
         articlePane.setRight(classifyContainer);
         articleContainer.setContent(articlePane);
@@ -80,6 +87,7 @@ public class FFGUI extends Application {
         List<ToggleGroup> listOfGroups = new ArrayList<>();
 
         filter.setOnAction(e1 -> {
+                    donationContainer.getChildren().clear();
                     feedInfo.getChildren().clear();
                     articles.getChildren().clear();
                     classifyContainer.getChildren().clear();
@@ -151,6 +159,7 @@ public class FFGUI extends Application {
 
                         List<Article> classifiedWomensArticles = task.getValue();
 
+                        donationContainer.getChildren().add(donationLabel);
                         classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
 
                         for (Article article : classifiedWomensArticles) {
@@ -164,6 +173,11 @@ public class FFGUI extends Application {
                             });
 
                             articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
+
+                            Button donationBtn = new Button("Donate!");
+                            donationBtn.setId("donationBtn");
+                            donationContainer.getChildren().add(donationBtn);
+
 
                             HBox options = new HBox();
 

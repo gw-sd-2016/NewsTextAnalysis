@@ -1,4 +1,8 @@
-.classifyLabels {
+.extras {
+    -fx-alignment: center;
+}
+
+.classifyLabel {
     -fx-font-weight: bold;
 }
 
@@ -14,11 +18,12 @@
     -fx-alignment: center;
 }
 
-#feedInfo {
-    -fx-alignment: center;
+#donationLabel {
+    -fx-font-weight: bold;
+    -fx-label-padding: 5;
 }
 
-#classifyContainer {
+#feedInfo {
     -fx-alignment: center;
 }
 
