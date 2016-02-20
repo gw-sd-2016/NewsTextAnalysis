@@ -1,10 +1,10 @@
-import controller.MachineLearning;
+import controllers.MachineLearning;
 import javafx.concurrent.Task;
 import javafx.scene.control.*;
-import model.Article;
-import model.Feed;
-import controller.FeedParser;
-import controller.TextExtraction;
+import models.Article;
+import models.Feed;
+import controllers.FeedParser;
+import controllers.TextExtraction;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -102,6 +102,10 @@ public class FFGUI extends Application {
                     FeedParser parser = new FeedParser(rssUrl);
                     Feed feed = parser.parseFeed();
 
+                    if(feed == null) {
+                        return;
+                    }
+
                     Task<List<Article>> task = new Task<List<Article>>() {
                         @Override
                         protected List<Article> call() throws Exception {
@@ -178,6 +182,13 @@ public class FFGUI extends Application {
                             donationBtn.setId("donationBtn");
                             donationContainer.getChildren().add(donationBtn);
 
+                            //TODO complete donation button click
+                            //TODO new task & thread
+                            donationBtn.setOnAction(e5 -> {
+                                TextExtraction te = new TextExtraction();
+                                List<String> keywords = te.getKeywords(article.getLink());
+                                System.out.println(keywords);
+                            });
 
                             HBox options = new HBox();
 
@@ -215,8 +226,7 @@ public class FFGUI extends Application {
                 }
         );
 
-        addInstances.setOnAction(e5 -> {
-
+        addInstances.setOnAction(e6 -> {
             TextExtraction te = new TextExtraction();
             MachineLearning ml = new MachineLearning();
 
@@ -243,7 +253,7 @@ public class FFGUI extends Application {
                 }
             };
 
-            task.setOnRunning(e6 -> {
+            task.setOnRunning(e7 -> {
                 addInstances.setDisable(true);
             });
 
@@ -263,7 +273,7 @@ public class FFGUI extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest(e7 -> {
+        primaryStage.setOnCloseRequest(e8 -> {
             boolean result1 = new File("newsfeed.arff").delete();
             boolean result2 = new File("labeledarticles.csv").delete();
         });

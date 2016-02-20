@@ -1,8 +1,8 @@
-package controller;
+package controllers;
 
 import javafx.scene.control.Alert;
-import model.Feed;
-import model.Article;
+import models.Feed;
+import models.Article;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -118,6 +118,7 @@ public class FeedParser {
             alert.setHeaderText("Not a valid RSS feed!");
             alert.setContentText("Please enter a valid RSS feed URL");
             alert.showAndWait();
+            return null;
         }
         return feed;
     }

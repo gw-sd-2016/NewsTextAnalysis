@@ -1,8 +1,13 @@
-package controller;
+package controllers;
 
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class for extracting article plain text
@@ -47,5 +52,24 @@ public class TextExtraction {
         }
         //format text for Weka .arff filed
         return "'" + article + "'," + classAttr + "\n";
+    }
+
+    public List getKeywords(String link) {
+        String s;
+        List<String> keywords = new ArrayList<>();
+
+        try {
+            Process p = Runtime.getRuntime().exec("python newspaperkeywords.py " + link);
+
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            while ((s = stdInput.readLine()) != null) {
+                keywords.add(s);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return keywords;
     }
 }
