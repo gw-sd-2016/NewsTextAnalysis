@@ -7,9 +7,7 @@ url = sys.argv[1]
 article = Article(url, fetch_images=False)
 
 article.download()
-
 article.parse()
-
 article.nlp()
 
 keywords = article.keywords

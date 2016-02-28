@@ -1,5 +1,6 @@
 package controllers;
 
+import weka.classifiers.meta.Bagging;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
 import weka.core.converters.CSVSaver;
@@ -75,6 +76,7 @@ public class MachineLearning {
             stdTest.setClassIndex(0);
 
             J48 tree = new J48();
+
             tree.buildClassifier(stdTrain);
             labeled = new Instances(stdTest);
 

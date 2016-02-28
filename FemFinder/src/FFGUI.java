@@ -1,3 +1,4 @@
+import controllers.DBConnection;
 import controllers.MachineLearning;
 import javafx.concurrent.Task;
 import javafx.scene.control.*;
@@ -188,6 +189,9 @@ public class FFGUI extends Application {
                                 TextExtraction te = new TextExtraction();
                                 List<String> keywords = te.getKeywords(article.getLink());
                                 System.out.println(keywords);
+
+                                DBConnection connect = new DBConnection();
+                                connect.getNonprofits();
                             });
 
                             HBox options = new HBox();
