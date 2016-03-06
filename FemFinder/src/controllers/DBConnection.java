@@ -69,64 +69,23 @@ public class DBConnection {
     }
 
     public String createSqlQuery(List<String> keywordList) {
-        String keyword1;
-        String keyword2;
-        String keyword3;
-        String keyword4;
-        String keyword5;
-        String sql = null;
+        String sqlListOfKeywords = "";
+        String sql;
 
-        if(keywordList.size() >= 5) {
-            keyword1 = keywordList.get(0);
-            keyword2 = keywordList.get(1);
-            keyword3 = keywordList.get(2);
-            keyword4 = keywordList.get(3);
-            keyword5 = keywordList.get(4);
-
-            sql = "SELECT n.name, n.webpage " +
-                    "FROM Nonprofit n, Keyword k, Keyword_map m " +
-                    "WHERE k.kid = m.keyword_id " +
-                    "AND (k.word IN ('" + keyword1 + "', '" + keyword2 + "', '" + keyword3 + "', '" + keyword4 + "', '" + keyword5 + "')) " +
-                    "AND n.nid = m.nonprofit_id";
-        } else if(keywordList.size() == 4) {
-            keyword1 = keywordList.get(0);
-            keyword2 = keywordList.get(1);
-            keyword3 = keywordList.get(2);
-            keyword4 = keywordList.get(3);
-
-            sql = "SELECT n.name, n.webpage " +
-                    "FROM Nonprofit n, Keyword k, Keyword_map m " +
-                    "WHERE k.kid = m.keyword_id " +
-                    "AND (k.word IN ('" + keyword1 + "', '" + keyword2 + "', '" + keyword3 + "', '" + keyword4 + "')) " +
-                    "AND n.nid = m.nonprofit_id";
-        } else if(keywordList.size() == 3) {
-            keyword1 = keywordList.get(0);
-            keyword2 = keywordList.get(1);
-            keyword3 = keywordList.get(2);
-
-            sql = "SELECT n.name, n.webpage " +
-                    "FROM Nonprofit n, Keyword k, Keyword_map m " +
-                    "WHERE k.kid = m.keyword_id " +
-                    "AND (k.word IN ('" + keyword1 + "', '" + keyword2 + "', '" + keyword3 + "')) " +
-                    "AND n.nid = m.nonprofit_id";
-        } else if(keywordList.size() == 2) {
-            keyword1 = keywordList.get(0);
-            keyword2 = keywordList.get(1);
-
-            sql = "SELECT n.name, n.webpage " +
-                    "FROM Nonprofit n, Keyword k, Keyword_map m " +
-                    "WHERE k.kid = m.keyword_id " +
-                    "AND (k.word IN ('" + keyword1 + "', '" + keyword2 + "')) " +
-                    "AND n.nid = m.nonprofit_id";
-        } else if(keywordList.size() == 1) {
-            keyword1 = keywordList.get(0);
-
-            sql = "SELECT n.name, n.webpage " +
-                    "FROM Nonprofit n, Keyword k, Keyword_map m " +
-                    "WHERE k.kid = m.keyword_id " +
-                    "AND (k.word IN ('" + keyword1 + "')) " +
-                    "AND n.nid = m.nonprofit_id";
+        for(int i = 0; i < keywordList.size(); i++) {
+            if(i == keywordList.size()-1) {
+                sqlListOfKeywords += "'" + keywordList.get(i) + "'";
+            } else {
+                sqlListOfKeywords += "'" + keywordList.get(i) + "', ";
+            }
         }
+
+        sql = "SELECT n.name, n.webpage " +
+                "FROM Nonprofit n, Keyword k, Keyword_map m " +
+                "WHERE k.kid = m.keyword_id " +
+                "AND (k.word IN (" + sqlListOfKeywords + ")) " +
+                "AND n.nid = m.nonprofit_id";
+
         return sql;
     }
 }
