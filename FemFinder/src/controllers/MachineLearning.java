@@ -1,6 +1,5 @@
 package controllers;
 
-import weka.classifiers.meta.Bagging;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
 import weka.core.converters.CSVSaver;

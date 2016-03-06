@@ -14,7 +14,7 @@ public class Feed {
     final String copyright;
     final String pubDate;
 
-    final List<Article> articles = new ArrayList<Article>();
+    final List<Article> articles = new ArrayList<>();
 
     public Feed(String title, String link, String description, String copyright, String datePublished) {
         this.title = title;

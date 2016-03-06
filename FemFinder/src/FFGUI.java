@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Nonprofit;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -88,149 +89,161 @@ public class FFGUI extends Application {
         List<ToggleGroup> listOfGroups = new ArrayList<>();
 
         filter.setOnAction(e1 -> {
-                    donationContainer.getChildren().clear();
-                    feedInfo.getChildren().clear();
-                    articles.getChildren().clear();
-                    classifyContainer.getChildren().clear();
-                    addInstances.setDisable(false);
+            donationContainer.getChildren().clear();
+            feedInfo.getChildren().clear();
+            articles.getChildren().clear();
+            classifyContainer.getChildren().clear();
+            addInstances.setDisable(false);
 
-                    Alert alert = new Alert(Alert.AlertType.NONE);
+            Alert alert = new Alert(Alert.AlertType.NONE);
 
-                    //get the rss feed url from the text area
-                    String rssUrl = feedUrl.getText();
+            //get the rss feed url from the text area
+            String rssUrl = feedUrl.getText();
 
-                    //create a new FeedParser to parse feed
-                    FeedParser parser = new FeedParser(rssUrl);
-                    Feed feed = parser.parseFeed();
+            //create a new FeedParser to parse feed
+            FeedParser parser = new FeedParser(rssUrl);
+            Feed feed = parser.parseFeed();
 
-                    if(feed == null) {
-                        return;
+            if(feed == null) {
+                return;
+            }
+
+            Task<List<Article>> task = new Task<List<Article>>() {
+                @Override
+                protected List<Article> call() throws Exception {
+                    //create new arff file to add articles
+                    MachineLearning ml = new MachineLearning();
+                    ml.createArffFile();
+
+                    for(Article article : feed.getArticles()) {
+                        TextExtraction te = new TextExtraction();
+                        String plainText = te.getUnclassifiedPlainText(article.getLink());
+
+                        //append plain text to arff file for weka processing
+                        ml.addArticleToFile("newsfeed.arff", plainText);
                     }
 
-                    Task<List<Article>> task = new Task<List<Article>>() {
-                        @Override
-                        protected List<Article> call() throws Exception {
-                            //create new arff file to add articles
-                            MachineLearning ml = new MachineLearning();
-                            ml.createArffFile();
+                    //classify articles
+                    File labeledArticles = ml.classifyArticles();
 
-                            for(Article article : feed.getArticles()) {
-                                TextExtraction te = new TextExtraction();
-                                String plainText = te.getUnclassifiedPlainText(article.getLink());
+                    //extract out class attributes
+                    ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
 
-                                //append plain text to arff file for weka processing
-                                ml.addArticleToFile("newsfeed.arff", plainText);
+                    //create new list of articles that will hold articles related to women
+                    //List<Article> womenArticles
+
+                    womensArticles = new ArrayList<>();
+
+                    //filter out articles unrelated to women
+                    if (classAttr.size() == feed.getArticles().size()) {
+                        for (int i = 0; i < classAttr.size(); i++) {
+                            if (classAttr.get(i) == 1) {
+                                womensArticles.add(feed.getArticles().get(i));
                             }
-
-                            //classify articles
-                            File labeledArticles = ml.classifyArticles();
-
-                            //extract out class attributes
-                            ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
-
-                            //create new list of articles that will hold articles related to women
-                            //List<Article> womenArticles
-
-                            womensArticles = new ArrayList<>();
-
-                            //filter out articles unrelated to women
-                            if (classAttr.size() == feed.getArticles().size()) {
-                                for (int i = 0; i < classAttr.size(); i++) {
-                                    if (classAttr.get(i) == 1) {
-                                        womensArticles.add(feed.getArticles().get(i));
-                                    }
-                                }
-                            }
-                            return womensArticles;
                         }
-                    };
+                    }
+                    return womensArticles;
+                }
+            };
 
-                    task.setOnSucceeded(e2 -> {
-                        alert.close();
+            task.setOnSucceeded(e2 -> {
+                alert.close();
 
-                        //add feed information to ui
-                        Label feedTitle = new Label(feed.getTitle());
-                        feedTitle.setId("titleText");
-                        Hyperlink feedLink = new Hyperlink(feed.getLink());
-                        Label feedDescription = new Label(feed.getDescription());
-                        Label feedCopyright = new Label(feed.getCopyright());
-                        Label feedPubDate = new Label(feed.getPubDate());
+                //add feed information to ui
+                Label feedTitle = new Label(feed.getTitle());
+                feedTitle.setId("titleText");
+                Hyperlink feedLink = new Hyperlink(feed.getLink());
+                Label feedDescription = new Label(feed.getDescription());
+                Label feedCopyright = new Label(feed.getCopyright());
+                Label feedPubDate = new Label(feed.getPubDate());
 
-                        feedLink.setOnAction(e3 -> {
-                            getHostServices().showDocument(feed.getLink());
-                        });
+                feedLink.setOnAction(e3 -> {
+                    getHostServices().showDocument(feed.getLink());
+                });
 
-                        feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate, new Separator());
+                feedInfo.getChildren().addAll(new Separator(), feedTitle, feedLink, feedDescription, feedCopyright, feedPubDate, new Separator());
 
-                        List<Article> classifiedWomensArticles = task.getValue();
+                List<Article> classifiedWomensArticles = task.getValue();
 
-                        donationContainer.getChildren().add(donationLabel);
-                        classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
+                donationContainer.getChildren().add(donationLabel);
+                classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
 
-                        for (Article article : classifiedWomensArticles) {
-                            Label articleTitle = new Label(article.getTitle());
-                            articleTitle.setId("titleText");
-                            Label articlePubDate = new Label(article.getPubDate());
-                            Hyperlink articleLink = new Hyperlink(article.getLink());
+                for (Article article : classifiedWomensArticles) {
+                    Label articleTitle = new Label(article.getTitle());
+                    articleTitle.setId("titleText");
+                    Label articlePubDate = new Label(article.getPubDate());
+                    Hyperlink articleLink = new Hyperlink(article.getLink());
 
-                            articleLink.setOnAction(e4 -> {
-                                getHostServices().showDocument(article.getLink());
-                            });
-
-                            articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
-
-                            Button donationBtn = new Button("Donate!");
-                            donationBtn.setId("donationBtn");
-                            donationContainer.getChildren().add(donationBtn);
-
-                            //TODO complete donation button click
-                            //TODO new task & thread
-                            donationBtn.setOnAction(e5 -> {
-                                TextExtraction te = new TextExtraction();
-                                List<String> keywords = te.getKeywords(article.getLink());
-                                System.out.println(keywords);
-
-                                DBConnection connect = new DBConnection();
-                                connect.getNonprofits();
-                            });
-
-                            HBox options = new HBox();
-
-                            final ToggleGroup group = new ToggleGroup();
-
-                            RadioButton yesbtn = new RadioButton();
-                            yesbtn.getStyleClass().add("options");
-                            yesbtn.setUserData("Yes");
-                            yesbtn.setToggleGroup(group);
-
-                            RadioButton nobtn = new RadioButton();
-                            nobtn.getStyleClass().add("options");
-                            nobtn.setUserData("No");
-                            nobtn.setToggleGroup(group);
-
-                            listOfGroups.add(group);
-
-                            options.getChildren().addAll(yesbtn, nobtn);
-                            classifyContainer.getChildren().add(options);
-                        }
-                        classifyContainer.getChildren().add(addInstances);
-                        classifyContainer.setMaxHeight(feedInfo.getHeight() + articles.getHeight() + 50);
+                    articleLink.setOnAction(e4 -> {
+                        getHostServices().showDocument(article.getLink());
                     });
 
-                    ProgressBar progressBar = new ProgressBar();
-                    alert.setTitle("Busy");
-                    alert.setHeaderText("Processing...");
-                    alert.setContentText("Analyzing articles...");
-                    alert.setGraphic(progressBar);
-                    alert.getButtonTypes().add(ButtonType.CLOSE);
-                    alert.show();
+                    articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
 
-                    Thread thread = new Thread(task);
-                    thread.start();
+                    Button donationBtn = new Button("Donate!");
+                    donationBtn.setId("donationBtn");
+                    donationContainer.getChildren().add(donationBtn);
+
+                    donationBtn.setOnAction(e5 -> {
+                        Task<List<Nonprofit>> task1 = new Task<List<Nonprofit>>() {
+                            @Override
+                            protected List<Nonprofit> call() throws Exception {
+                                TextExtraction te = new TextExtraction();
+                                List<String> keywords = te.getKeywords(article.getLink());
+
+                                DBConnection connect = new DBConnection();
+                                return connect.getNonprofits(keywords);
+                            }
+                        };
+
+                        //TODO randomly select 3 nonprofits from list if length is greater than 3
+                        //TODO make case for empty list
+                        //TODO display results to user
+                        task1.setOnSucceeded(e6 -> {
+                            List<Nonprofit> nonprofits = task1.getValue();
+                            System.out.println(nonprofits);
+                        });
+
+                        Thread thread  = new Thread(task1);
+                        thread.start();
+                    });
+
+                    HBox options = new HBox();
+
+                    final ToggleGroup group = new ToggleGroup();
+
+                    RadioButton yesbtn = new RadioButton();
+                    yesbtn.getStyleClass().add("options");
+                    yesbtn.setUserData("Yes");
+                    yesbtn.setToggleGroup(group);
+
+                    RadioButton nobtn = new RadioButton();
+                    nobtn.getStyleClass().add("options");
+                    nobtn.setUserData("No");
+                    nobtn.setToggleGroup(group);
+
+                    listOfGroups.add(group);
+
+                    options.getChildren().addAll(yesbtn, nobtn);
+                    classifyContainer.getChildren().add(options);
                 }
-        );
+                classifyContainer.getChildren().add(addInstances);
+                classifyContainer.setMaxHeight(feedInfo.getHeight() + articles.getHeight() + 50);
+            });
 
-        addInstances.setOnAction(e6 -> {
+            ProgressBar progressBar = new ProgressBar();
+            alert.setTitle("Busy");
+            alert.setHeaderText("Processing...");
+            alert.setContentText("Analyzing articles...");
+            alert.setGraphic(progressBar);
+            alert.getButtonTypes().add(ButtonType.CLOSE);
+            alert.show();
+
+            Thread thread = new Thread(task);
+            thread.start();
+        });
+
+        addInstances.setOnAction(e7 -> {
             TextExtraction te = new TextExtraction();
             MachineLearning ml = new MachineLearning();
 
@@ -257,7 +270,7 @@ public class FFGUI extends Application {
                 }
             };
 
-            task.setOnRunning(e7 -> {
+            task.setOnRunning(e8 -> {
                 addInstances.setDisable(true);
             });
 
@@ -277,7 +290,7 @@ public class FFGUI extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest(e8 -> {
+        primaryStage.setOnCloseRequest(e9 -> {
             boolean result1 = new File("newsfeed.arff").delete();
             boolean result2 = new File("labeledarticles.csv").delete();
         });
