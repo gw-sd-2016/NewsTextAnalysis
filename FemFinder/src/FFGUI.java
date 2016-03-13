@@ -1,6 +1,7 @@
 import controllers.DBConnection;
 import controllers.MachineLearning;
 import javafx.concurrent.Task;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import models.Article;
 import models.Feed;
@@ -43,11 +44,20 @@ public class FFGUI extends Application {
 
         BorderPane articlePane = new BorderPane();
 
-        VBox donationContainer = new VBox(40);
-        donationContainer.getStyleClass().add("extras");
+        VBox donationContainer = new VBox();
+
+        VBox donationLabelContainer = new VBox(40);
+        donationLabelContainer.setPadding(new Insets(40, 0, 30, 0));
+        donationLabelContainer.getStyleClass().add("extras");
+
+        VBox donationBtnContainer = new VBox(35);
+        donationBtnContainer.setPadding(new Insets(10, 0, 10, 0));
+        donationBtnContainer.getStyleClass().add("extras");
 
         Label donationLabel = new Label("Want to help?");
         donationLabel.setId("donationLabel");
+
+        donationLabelContainer.getChildren().add(donationLabel);
 
         VBox feedInfo = new VBox();
         feedInfo.setId("feedInfo");
@@ -95,7 +105,7 @@ public class FFGUI extends Application {
             classifyContainer.getChildren().clear();
             addInstances.setDisable(false);
 
-            Alert alert = new Alert(Alert.AlertType.NONE);
+            Alert processingAlert = new Alert(Alert.AlertType.NONE);
 
             //get the rss feed url from the text area
             String rssUrl = feedUrl.getText();
@@ -147,7 +157,7 @@ public class FFGUI extends Application {
             };
 
             task.setOnSucceeded(e2 -> {
-                alert.close();
+                processingAlert.close();
 
                 //add feed information to ui
                 Label feedTitle = new Label(feed.getTitle());
@@ -165,7 +175,6 @@ public class FFGUI extends Application {
 
                 List<Article> classifiedWomensArticles = task.getValue();
 
-                donationContainer.getChildren().add(donationLabel);
                 classifyContainer.getChildren().addAll(classifyLabel1, classifyLabel2, optionsContainer);
 
                 for (Article article : classifiedWomensArticles) {
@@ -181,8 +190,7 @@ public class FFGUI extends Application {
                     articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
 
                     Button donationBtn = new Button("Donate!");
-                    donationBtn.setId("donationBtn");
-                    donationContainer.getChildren().add(donationBtn);
+                    donationBtnContainer.getChildren().add(donationBtn);
 
                     donationBtn.setOnAction(e5 -> {
                         Task<List<Nonprofit>> task1 = new Task<List<Nonprofit>>() {
@@ -196,12 +204,45 @@ public class FFGUI extends Application {
                             }
                         };
 
-                        //TODO randomly select 3 nonprofits from list if length is greater than 3
-                        //TODO make case for empty list
-                        //TODO display results to user
                         task1.setOnSucceeded(e6 -> {
                             List<Nonprofit> nonprofits = task1.getValue();
-                            System.out.println(nonprofits);
+
+                            Alert donationAlert = new Alert(Alert.AlertType.INFORMATION);
+                            donationAlert.setTitle("Donate");
+                            donationAlert.setHeaderText("Nonprofits:");
+                            VBox nonprofitContainer = new VBox();
+
+                            if (nonprofits.size() == 0) {
+                                Label noNonprofits = new Label("Sorry, no nonprofits found!");
+                                nonprofitContainer.getChildren().add(noNonprofits);
+                                donationAlert.setGraphic(noNonprofits);
+                            } else if (nonprofits.size() <= 3) {
+                                for (Nonprofit nonprofit : nonprofits) {
+                                    Hyperlink donationLink = new Hyperlink(nonprofit.getName());
+
+                                    donationLink.setOnAction(event1 -> {
+                                        getHostServices().showDocument(nonprofit.getDonationLink());
+                                    });
+
+                                    nonprofitContainer.getChildren().addAll(donationLink);
+                                }
+                                donationAlert.setGraphic(nonprofitContainer);
+                            } else if(nonprofits.size() > 3) {
+                                DBConnection conn = new DBConnection();
+                                List<Nonprofit> randomNonprofits = conn.getNRandomNonprofits(nonprofits, 3);
+
+                                for (int i = 0; i < 3; i++) {
+                                    Hyperlink donationLink = new Hyperlink(randomNonprofits.get(i).getName());
+                                    String link = randomNonprofits.get(i).getDonationLink();
+
+                                    donationLink.setOnAction(event2 -> {
+                                        getHostServices().showDocument(link);
+                                    });
+                                    nonprofitContainer.getChildren().addAll(donationLink);
+                                }
+                                donationAlert.setGraphic(nonprofitContainer);
+                            }
+                            donationAlert.show();
                         });
 
                         Thread thread  = new Thread(task1);
@@ -229,15 +270,18 @@ public class FFGUI extends Application {
                 }
                 classifyContainer.getChildren().add(addInstances);
                 classifyContainer.setMaxHeight(feedInfo.getHeight() + articles.getHeight() + 50);
+
+                donationContainer.getChildren().addAll(donationLabelContainer, donationBtnContainer);
+                donationBtnContainer.setMaxHeight(articles.getHeight());
             });
 
             ProgressBar progressBar = new ProgressBar();
-            alert.setTitle("Busy");
-            alert.setHeaderText("Processing...");
-            alert.setContentText("Analyzing articles...");
-            alert.setGraphic(progressBar);
-            alert.getButtonTypes().add(ButtonType.CLOSE);
-            alert.show();
+            processingAlert.setTitle("Busy");
+            processingAlert.setHeaderText("Processing...");
+            processingAlert.setContentText("Analyzing articles...");
+            processingAlert.setGraphic(progressBar);
+            processingAlert.getButtonTypes().add(ButtonType.CLOSE);
+            processingAlert.show();
 
             Thread thread = new Thread(task);
             thread.start();

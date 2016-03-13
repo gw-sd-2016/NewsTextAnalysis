@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3138cf88-251e-4f5c-a21d-dc848c387605" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/DBConnection.java" afterPath="$PROJECT_DIR$/src/controllers/DBConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FFGUI.java" afterPath="$PROJECT_DIR$/src/FFGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FFStylesheet.css" afterPath="$PROJECT_DIR$/src/FFStylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FemFinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FFGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FFGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.14457831">
+              <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,14 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/DBConnection.java">
+      <file leaf-file-name="FFStylesheet.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FFStylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33518004">
-              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +82,6 @@
         <option value="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Scene.java" />
         <option value="$PROJECT_DIR$/src/controller/FeedParser.java" />
         <option value="$PROJECT_DIR$/src/controller/MachineLearning.java" />
-        <option value="$PROJECT_DIR$/src/FFStylesheet.css" />
         <option value="$PROJECT_DIR$/src/controller/TextExtraction.java" />
         <option value="$PROJECT_DIR$/src/controllers/FeedParser.java" />
         <option value="$PROJECT_DIR$/src/controllers/TextExtraction.java" />
@@ -89,8 +89,9 @@
         <option value="$PROJECT_DIR$/src/controllers/MachineLearning.java" />
         <option value="$PROJECT_DIR$/src/models/Nonprofit.java" />
         <option value="$PROJECT_DIR$/src/models/Feed.java" />
-        <option value="$PROJECT_DIR$/src/FFGUI.java" />
         <option value="$PROJECT_DIR$/src/controllers/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/FFStylesheet.css" />
+        <option value="$PROJECT_DIR$/src/FFGUI.java" />
       </list>
     </option>
   </component>
@@ -106,9 +107,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="75" />
+    <option name="x" value="37" />
     <option name="y" value="23" />
-    <option name="width" value="1137" />
+    <option name="width" value="1183" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -774,30 +775,30 @@
       <workItem from="1452356325416" duration="46291000" />
       <workItem from="1453323266713" duration="44526000" />
       <workItem from="1455638289106" duration="8421000" />
-      <workItem from="1456239456435" duration="19745000" />
+      <workItem from="1456239456435" duration="39062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175161000" />
+    <option name="totallyTimeSpent" value="194478000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="23" width="1137" height="728" extended-state="0" />
+    <frame x="37" y="23" width="1183" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.4971335" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.49366018" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4097117" sideWeight="0.24538259" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32776934" sideWeight="0.25021133" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4097117" sideWeight="0.7546174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32776934" sideWeight="0.7497887" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18117854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17413355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1153,13 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FFStylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7006369">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/Extensions/boilerpipe-1.2.0.jar!/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1182,8 +1176,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="5" selection-start-line="63" selection-start-column="4" selection-end-line="67" selection-end-column="5" />
           <folding>
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1220,16 +1214,16 @@
         <state vertical-scroll-proportion="0.12465374">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
           <folding>
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#190#191#0" expanded="false" />
+            <element signature="e#217#218#0" expanded="false" />
+            <element signature="e#257#258#0" expanded="false" />
+            <element signature="e#289#290#0" expanded="false" />
+            <element signature="e#369#370#0" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#190#191#0" expanded="false" />
+            <element signature="e#217#218#0" expanded="false" />
+            <element signature="e#257#258#0" expanded="false" />
+            <element signature="e#289#290#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,7 +1233,7 @@
         <state vertical-scroll-proportion="2.6177285">
           <caret line="63" column="100" selection-start-line="63" selection-start-column="100" selection-end-line="63" selection-end-column="100" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1262,20 +1256,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.67391306">
+          <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/DBConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/FFStylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33518004">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.14457831">
+          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

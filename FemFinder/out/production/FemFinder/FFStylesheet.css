@@ -20,7 +20,7 @@
 
 #donationLabel {
     -fx-font-weight: bold;
-    -fx-label-padding: 5;
+    -fx-padding: 5;
 }
 
 #feedInfo {

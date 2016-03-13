@@ -4,6 +4,8 @@ import models.Nonprofit;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -84,8 +86,15 @@ public class DBConnection {
                 "FROM Nonprofit n, Keyword k, Keyword_map m " +
                 "WHERE k.kid = m.keyword_id " +
                 "AND (k.word IN (" + sqlListOfKeywords + ")) " +
-                "AND n.nid = m.nonprofit_id";
+                "AND n.nid = m.nonprofit_id " +
+                "GROUP BY n.nid";
 
         return sql;
+    }
+
+    public List<Nonprofit> getNRandomNonprofits(List<Nonprofit> list, int n) {
+        List<Nonprofit> copy = new LinkedList<>(list);
+        Collections.shuffle(copy);
+        return copy.subList(0, n);
     }
 }
