@@ -1,3 +1,8 @@
+.hyperlink:focused {
+    -fx-border-style: none;
+    -fx-border-width: 0;
+}
+
 .extras {
     -fx-alignment: center;
 }
