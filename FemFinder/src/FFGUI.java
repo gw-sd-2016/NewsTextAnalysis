@@ -211,7 +211,7 @@ public class FFGUI extends Application {
                             because a dialog is actually a new stage with a new scene,
                             its root node is a DialogPane instance */
                             DialogPane dialogPane = donationAlert.getDialogPane();
-                            dialogPane.getStylesheets().add("Stylesheets/donationAlert.css");
+                            dialogPane.getStylesheets().add("stylesheets/donationAlert.css");
 
                             donationAlert.setTitle("Donate");
                             donationAlert.setHeaderText("Nonprofits:");
@@ -333,7 +333,7 @@ public class FFGUI extends Application {
         pane.setCenter(articleContainer);
 
         Scene scene = new Scene(pane, 900, 800);
-        scene.getStylesheets().add("Stylesheets/mainApp.css");
+        scene.getStylesheets().add("stylesheets/mainApp.css");
         primaryStage.setTitle("FemFinder");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
