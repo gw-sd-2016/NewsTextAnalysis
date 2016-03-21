@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3138cf88-251e-4f5c-a21d-dc848c387605" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/donationAlert.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FFStylesheet.css" afterPath="$PROJECT_DIR$/src/mainApp.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Stylesheets/donationAlert.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/donationAlert.css" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/mainApp.css" afterPath="$PROJECT_DIR$/src/Stylesheets/mainApp.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FFGUI.java" afterPath="$PROJECT_DIR$/src/FFGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FemFinder/FFStylesheet.css" afterPath="$PROJECT_DIR$/out/production/FemFinder/FFStylesheet.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FemFinder.iws" />
@@ -40,6 +40,26 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="donationAlert.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stylesheets/donationAlert.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainApp.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stylesheets/mainApp.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,6 +104,7 @@
         <option value="$PROJECT_DIR$/src/FFStylesheet.css" />
         <option value="$PROJECT_DIR$/src/donationAlert.css" />
         <option value="$PROJECT_DIR$/src/FFGUI.java" />
+        <option value="$PROJECT_DIR$/src/Stylesheets/donationAlert.css" />
       </list>
     </option>
   </component>
@@ -178,6 +199,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FemFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FemFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -228,6 +267,7 @@
       <recent name="$PROJECT_DIR$/libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Stylesheets" />
       <recent name="$PROJECT_DIR$/src/controller" />
     </key>
   </component>
@@ -767,12 +807,12 @@
       <workItem from="1452356325416" duration="46291000" />
       <workItem from="1453323266713" duration="44526000" />
       <workItem from="1455638289106" duration="8421000" />
-      <workItem from="1456239456435" duration="45774000" />
+      <workItem from="1456239456435" duration="46150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201190000" />
+    <option name="totallyTimeSpent" value="201566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1252" height="728" extended-state="0" />
@@ -1250,7 +1290,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainApp.css">
+    <entry file="file://$PROJECT_DIR$/src/Stylesheets/mainApp.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
@@ -1258,10 +1298,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/donationAlert.css">
+    <entry file="file://$PROJECT_DIR$/src/Stylesheets/donationAlert.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
         </state>
       </provider>
