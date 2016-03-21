@@ -140,8 +140,6 @@ public class FFGUI extends Application {
                     ArrayList<Integer> classAttr = ml.extractClassAttributes(labeledArticles);
 
                     //create new list of articles that will hold articles related to women
-                    //List<Article> womenArticles
-
                     womensArticles = new ArrayList<>();
 
                     //filter out articles unrelated to women
@@ -208,6 +206,13 @@ public class FFGUI extends Application {
                             List<Nonprofit> nonprofits = task1.getValue();
 
                             Alert donationAlert = new Alert(Alert.AlertType.INFORMATION);
+
+                            /* needed to change the style of links in the donation alert dialogs
+                            because a dialog is actually a new stage with a new scene,
+                            its root node is a DialogPane instance */
+                            DialogPane dialogPane = donationAlert.getDialogPane();
+                            dialogPane.getStylesheets().add("donationAlert.css");
+
                             donationAlert.setTitle("Donate");
                             donationAlert.setHeaderText("Nonprofits:");
                             VBox nonprofitContainer = new VBox();
@@ -328,7 +333,7 @@ public class FFGUI extends Application {
         pane.setCenter(articleContainer);
 
         Scene scene = new Scene(pane, 900, 800);
-        scene.getStylesheets().add("FFStylesheet.css");
+        scene.getStylesheets().add("mainApp.css");
         primaryStage.setTitle("FemFinder");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
