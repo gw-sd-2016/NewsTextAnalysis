@@ -1,12 +1,17 @@
 package controllers;
 
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
+import edu.stanford.nlp.ie.crf.CRFClassifier;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /**
@@ -15,6 +20,20 @@ import java.util.List;
  * Created by ellenlouie on 12/20/15.
  */
 public class TextExtraction {
+
+    public String getPlainText(String link) {
+        String article = "";
+
+        try {
+            URL url = new URL(link);
+
+            article = ArticleExtractor.INSTANCE.getText(url);
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return article;
+    }
 
     public String getUnclassifiedPlainText(String link) {
         String article = "";
@@ -71,5 +90,42 @@ public class TextExtraction {
             e.printStackTrace();
         }
         return keywords;
+    }
+
+    public List getLocations(String article) {
+        LinkedHashMap <String, LinkedHashSet<String>> results = new LinkedHashMap<>();
+        String serializedClassifier = "english.all.3class.distsim.crf.ser.gz";
+        try {
+            CRFClassifier<CoreLabel> classifier = CRFClassifier.getClassifier(serializedClassifier);
+            List<List<CoreLabel>> classify = classifier.classify(article);
+
+            for (List<CoreLabel> coreLabels : classify) {
+                for (CoreLabel coreLabel : coreLabels) {
+                    String word = coreLabel.word();
+                    String category = coreLabel.get(CoreAnnotations.AnswerAnnotation.class);
+                    if(!"O".equals(category)) {
+                        if(results.containsKey(category)) {
+                            // key is already there just insert in arraylist
+                            results.get(category).add(word);
+                        } else {
+                            LinkedHashSet<String> temp = new LinkedHashSet<>();
+                            temp.add(word);
+                            results.put(category, temp);
+                        }
+                        System.out.println(word+":"+category);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("SOMETHING ISNT RIGHT");
+            e.printStackTrace();
+        }
+
+        //get rid of people and organizations, just keep locations
+        //TODO potential to find organizations and display ones that are mentioned in the articles
+        //TODO (cont) although it seems unlikely actual nonprofits would be mentioned often in articles
+        LinkedHashSet<String> location = results.get("LOCATION");
+        List<String> locations = new ArrayList<String>(location);
+        return locations;
     }
 }

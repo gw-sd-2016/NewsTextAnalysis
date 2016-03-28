@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class DBConnection {
 
-    public List getNonprofits(List<String> listOfArticleKeywords) {
+    public List getNonprofits(List<String> listOfArticleKeywords, List<String> listOfArticleLocations) {
         final String jdbc_driver = "com.mysql.jdbc.Driver";
         final String db_url = "jdbc:mysql://localhost/femfinder";
 
@@ -33,7 +33,7 @@ public class DBConnection {
 
             //creating query statement
             stmt = conn.createStatement();
-            String sql = createSqlQuery(listOfArticleKeywords);
+            String sql = createSqlQuery(listOfArticleKeywords, listOfArticleLocations);
             ResultSet rs = stmt.executeQuery(sql);
 
             //get query results
@@ -70,26 +70,32 @@ public class DBConnection {
         return nonprofits;
     }
 
-    public String createSqlQuery(List<String> keywordList) {
-        String sqlListOfKeywords = "";
-        String sql;
+    public String createSqlQuery(List<String> keywordList, List<String> locationList) {
+        String keywords = formatSqlLists(keywordList);
+        String locations = formatSqlLists(locationList);
 
-        for(int i = 0; i < keywordList.size(); i++) {
-            if(i == keywordList.size()-1) {
-                sqlListOfKeywords += "'" + keywordList.get(i) + "'";
-            } else {
-                sqlListOfKeywords += "'" + keywordList.get(i) + "', ";
-            }
-        }
+        System.out.println(locationList);
 
-        sql = "SELECT n.name, n.webpage " +
+        return "SELECT n.name, n.webpage " +
                 "FROM Nonprofit n, Keyword k, Keyword_map m " +
                 "WHERE k.kid = m.keyword_id " +
-                "AND (k.word IN (" + sqlListOfKeywords + ")) " +
+                "AND (k.word IN (" + keywords + ")) " +
+                //"AND (n.location IN ('International', " + locations + ") " +
                 "AND n.nid = m.nonprofit_id " +
                 "GROUP BY n.nid";
+    }
 
-        return sql;
+    public String formatSqlLists(List<String> list) {
+        String sqlListOfKeywords = "";
+
+        for(int i = 0; i < list.size(); i++) {
+            if(i == list.size()-1) {
+                sqlListOfKeywords += "'" + list.get(i) + "'";
+            } else {
+                sqlListOfKeywords += "'" + list.get(i) + "', ";
+            }
+        }
+        return sqlListOfKeywords;
     }
 
     public List<Nonprofit> getNRandomNonprofits(List<Nonprofit> list, int n) {

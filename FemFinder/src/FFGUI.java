@@ -196,9 +196,10 @@ public class FFGUI extends Application {
                             protected List<Nonprofit> call() throws Exception {
                                 TextExtraction te = new TextExtraction();
                                 List<String> keywords = te.getKeywords(article.getLink());
+                                List<String> locations = te.getLocations(te.getPlainText(article.getLink()));
 
                                 DBConnection connect = new DBConnection();
-                                return connect.getNonprofits(keywords);
+                                return connect.getNonprofits(keywords, locations);
                             }
                         };
 
