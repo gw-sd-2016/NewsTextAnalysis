@@ -92,7 +92,7 @@ public class TextExtraction {
         return keywords;
     }
 
-    public List getLocations(String article) {
+    public List<String> getLocations(String article) {
         LinkedHashMap <String, LinkedHashSet<String>> results = new LinkedHashMap<>();
         String serializedClassifier = "english.all.3class.distsim.crf.ser.gz";
         try {

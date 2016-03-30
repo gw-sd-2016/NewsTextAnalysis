@@ -215,7 +215,7 @@ public class FFGUI extends Application {
                             DialogPane dialogPane = donationAlert.getDialogPane();
                             dialogPane.getStylesheets().add("stylesheets/donationAlert.css");
 
-                            donationAlert.setTitle("Donate");
+                            donationAlert.setTitle("Take Action");
                             donationAlert.setHeaderText("Nonprofits:");
                             VBox nonprofitContainer = new VBox();
 
@@ -234,6 +234,8 @@ public class FFGUI extends Application {
                                     nonprofitContainer.getChildren().addAll(donationLink);
                                 }
                                 donationAlert.setGraphic(nonprofitContainer);
+                                donationAlert.setContentText("Disclaimer: The links shown are being provided as a convenience; " +
+                                        "they do not constitute an endorsement or approval by [NewsTextAnalysis]");
                             } else if(nonprofits.size() > 3) {
                                 DBConnection conn = new DBConnection();
                                 List<Nonprofit> randomNonprofits = conn.getNRandomNonprofits(nonprofits, 3);
@@ -248,6 +250,8 @@ public class FFGUI extends Application {
                                     nonprofitContainer.getChildren().addAll(donationLink);
                                 }
                                 donationAlert.setGraphic(nonprofitContainer);
+                                donationAlert.setContentText("Disclaimer: The links shown are being provided as a convenience; " +
+                                        "they do not constitute an endorsement or approval by [NewsTextAnalysis]");
                             }
                             donationAlert.show();
                         });
@@ -336,7 +340,7 @@ public class FFGUI extends Application {
 
         Scene scene = new Scene(pane, 900, 800);
         scene.getStylesheets().add("stylesheets/mainApp.css");
-        primaryStage.setTitle("FemFinder");
+        primaryStage.setTitle("[NewsTextAnalysis]");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3138cf88-251e-4f5c-a21d-dc848c387605" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/boilerpipe_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_0_8_bin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/nekohtml_1_9_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_19.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/stanford_ner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/weka.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/xerces_2_9_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/DBConnection.java" afterPath="$PROJECT_DIR$/src/controllers/DBConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FFGUI.java" afterPath="$PROJECT_DIR$/src/FFGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/TextExtraction.java" afterPath="$PROJECT_DIR$/src/controllers/TextExtraction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FemFinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FFGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FFGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625">
-              <caret line="194" column="83" selection-start-line="194" selection-start-column="83" selection-end-line="194" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="336" column="43" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,14 +53,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextExtraction.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TextExtraction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/TextExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="116" column="56" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
+            <state vertical-scroll-proportion="1.3801296">
+              <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4271#4279#0" expanded="true" />
+                <element signature="e#4279#4287#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/Stylesheets/donationAlert.css" />
         <option value="$PROJECT_DIR$/src/controllers/NameEntityRecognition.java" />
         <option value="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/lang/Thread.java" />
-        <option value="$PROJECT_DIR$/src/controllers/TextExtraction.java" />
         <option value="$PROJECT_DIR$/src/controllers/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/controllers/TextExtraction.java" />
         <option value="$PROJECT_DIR$/src/FFGUI.java" />
       </list>
     </option>
@@ -133,8 +124,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="34" />
-    <option name="y" value="29" />
+    <option name="x" value="24" />
+    <option name="y" value="35" />
     <option name="width" value="1252" />
     <option name="height" value="697" />
   </component>
@@ -824,27 +815,27 @@
       <workItem from="1459115785823" duration="1067000" />
       <workItem from="1459121863871" duration="408000" />
       <workItem from="1459122611627" duration="861000" />
-      <workItem from="1459123785545" duration="14561000" />
+      <workItem from="1459123785545" duration="16322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232000000" />
+    <option name="totallyTimeSpent" value="233761000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="29" width="1252" height="697" extended-state="0" />
+    <frame x="24" y="35" width="1252" height="697" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.49366018" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34394905" sideWeight="0.264377" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21815287" sideWeight="0.264377" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34394905" sideWeight="0.735623" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21815287" sideWeight="0.735623" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16453674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1265,14 +1256,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/TextExtraction.java">
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/mainApp.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="56" selection-start-line="116" selection-start-column="56" selection-end-line="116" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4271#4279#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.3515625">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,20 +1274,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stylesheets/mainApp.css">
+    <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3515625">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="336" column="43" selection-start-line="336" selection-start-column="43" selection-end-line="336" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FFGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/controllers/TextExtraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625">
-          <caret line="194" column="83" selection-start-line="194" selection-start-column="83" selection-end-line="194" selection-end-column="83" />
+        <state vertical-scroll-proportion="1.3801296">
+          <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4279#4287#0" expanded="true" />
           </folding>
         </state>
       </provider>
