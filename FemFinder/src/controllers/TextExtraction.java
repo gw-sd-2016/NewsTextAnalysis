@@ -96,23 +96,26 @@ public class TextExtraction {
         LinkedHashMap <String, LinkedHashSet<String>> results = new LinkedHashMap<>();
         String serializedClassifier = "english.all.3class.distsim.crf.ser.gz";
         try {
+            //deserialize classifier with 3 fields: people, locations, organizations
             CRFClassifier<CoreLabel> classifier = CRFClassifier.getClassifier(serializedClassifier);
             List<List<CoreLabel>> classify = classifier.classify(article);
 
             for (List<CoreLabel> coreLabels : classify) {
                 for (CoreLabel coreLabel : coreLabels) {
+                    //person, location, or organization word found
                     String word = coreLabel.word();
+                    //label for the category
                     String category = coreLabel.get(CoreAnnotations.AnswerAnnotation.class);
                     if(!"O".equals(category)) {
                         if(results.containsKey(category)) {
-                            // key is already there just insert in arraylist
+                            //category already exists, just insert word
                             results.get(category).add(word);
                         } else {
+                            //category doesn't exist, add category and word
                             LinkedHashSet<String> temp = new LinkedHashSet<>();
                             temp.add(word);
                             results.put(category, temp);
                         }
-                        System.out.println(word+":"+category);
                     }
                 }
             }
@@ -122,8 +125,6 @@ public class TextExtraction {
         }
 
         //get rid of people and organizations, just keep locations
-        //TODO potential to find organizations and display ones that are mentioned in the articles
-        //TODO (cont) although it seems unlikely actual nonprofits would be mentioned often in articles
         LinkedHashSet<String> location = results.get("LOCATION");
         List<String> locations = new ArrayList<String>(location);
         return locations;

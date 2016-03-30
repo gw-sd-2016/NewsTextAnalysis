@@ -74,14 +74,12 @@ public class DBConnection {
         String keywords = formatSqlLists(keywordList);
         String locations = formatSqlLists(locationList);
 
-        System.out.println(locationList);
-
         return "SELECT n.name, n.webpage " +
                 "FROM Nonprofit n, Keyword k, Keyword_map m " +
                 "WHERE k.kid = m.keyword_id " +
                 "AND (k.word IN (" + keywords + ")) " +
-                //"AND (n.location IN ('International', " + locations + ") " +
                 "AND n.nid = m.nonprofit_id " +
+                "AND (n.location IN ('International', " + locations + ")) " +
                 "GROUP BY n.nid";
     }
 

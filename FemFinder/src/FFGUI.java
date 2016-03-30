@@ -100,6 +100,7 @@ public class FFGUI extends Application {
 
         filter.setOnAction(e1 -> {
             donationContainer.getChildren().clear();
+            donationBtnContainer.getChildren().clear();
             feedInfo.getChildren().clear();
             articles.getChildren().clear();
             classifyContainer.getChildren().clear();
@@ -187,7 +188,7 @@ public class FFGUI extends Application {
 
                     articles.getChildren().addAll(articleTitle, articlePubDate, articleLink, new Separator());
 
-                    Button donationBtn = new Button("Donate!");
+                    Button donationBtn = new Button("Take Action");
                     donationBtnContainer.getChildren().add(donationBtn);
 
                     donationBtn.setOnAction(e5 -> {

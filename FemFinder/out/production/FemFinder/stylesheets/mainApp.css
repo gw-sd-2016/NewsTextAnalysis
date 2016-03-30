@@ -1,0 +1,38 @@
+.hyperlink:focused {
+    -fx-border-style: none;
+    -fx-border-width: 0;
+}
+
+.extras {
+    -fx-alignment: center;
+}
+
+.classifyLabel {
+    -fx-font-weight: bold;
+}
+
+.options {
+    -fx-padding: 21;
+}
+
+#feedInputBox {
+    -fx-min-width: 50em;
+}
+
+#inputContainer {
+    -fx-alignment: center;
+}
+
+#donationLabel {
+    -fx-font-weight: bold;
+    -fx-padding: 5;
+}
+
+#feedInfo {
+    -fx-alignment: center;
+}
+
+#titleText {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
