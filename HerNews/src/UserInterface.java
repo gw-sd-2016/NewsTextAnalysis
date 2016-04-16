@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by ellenlouie on 11/29/15.
  */
-public class FFGUI extends Application {
+public class UserInterface extends Application {
 
     //store list of classified articles
     List<Article> womensArticles = null;
@@ -340,7 +340,7 @@ public class FFGUI extends Application {
 
         Scene scene = new Scene(pane, 900, 800);
         scene.getStylesheets().add("stylesheets/mainApp.css");
-        primaryStage.setTitle("[NewsTextAnalysis]");
+        primaryStage.setTitle("HerNews");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
