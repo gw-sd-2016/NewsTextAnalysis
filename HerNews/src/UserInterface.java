@@ -308,16 +308,13 @@ public class UserInterface extends Application {
                     if(listOfGroups.size() == womensArticles.size()) {
                         for(int i = 0; i < listOfGroups.size(); i++) {
                             if(listOfGroups.get(i).getSelectedToggle() == null) {
-                                System.out.println("Not clasified by user");
                                 continue;
                             } else if(listOfGroups.get(i).getSelectedToggle().getUserData() == "Yes") {
                                 String plainText = te.getClassifiedPlainText(womensArticles.get(i).getLink(), 1);
                                 ml.addArticleToFile("women-train.arff", plainText);
-                                System.out.println("Yes!");
                             } else if(listOfGroups.get(i).getSelectedToggle().getUserData() == "No") {
                                 String plainText = te.getClassifiedPlainText(womensArticles.get(i).getLink(), 0);
                                 ml.addArticleToFile("women-train.arff", plainText);
-                                System.out.println("No!");
                             }
                         }
                     }

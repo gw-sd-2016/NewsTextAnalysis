@@ -120,7 +120,6 @@ public class TextExtraction {
                 }
             }
         } catch (Exception e) {
-            System.out.println("SOMETHING ISNT RIGHT");
             e.printStackTrace();
         }
 

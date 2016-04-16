@@ -1,10 +1,10 @@
-Create database femfinder;
+Create database HerNews;
 
-use femfinder;
+use HerNews;
 
 CREATE TABLE Nonprofit (
 	nid INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(30) NOT NULL,
+	name VARCHAR(50) NOT NULL,
 	webpage VARCHAR(50) NOT NULL,
 	location VARCHAR(50) NOT NULL,
 	PRIMARY KEY(nid)

@@ -15,7 +15,7 @@ public class DBConnection {
 
     public List getNonprofits(List<String> listOfArticleKeywords, List<String> listOfArticleLocations) {
         final String jdbc_driver = "com.mysql.jdbc.Driver";
-        final String db_url = "jdbc:mysql://localhost/femfinder";
+        final String db_url = "jdbc:mysql://localhost/HerNews";
 
         final String user = "root";
         final String pass = "";
@@ -70,7 +70,7 @@ public class DBConnection {
         return nonprofits;
     }
 
-    public String createSqlQuery(List<String> keywordList, List<String> locationList) {
+    private String createSqlQuery(List<String> keywordList, List<String> locationList) {
         String keywords = formatSqlLists(keywordList);
         String locations = formatSqlLists(locationList);
 
@@ -83,7 +83,7 @@ public class DBConnection {
                 "GROUP BY n.nid";
     }
 
-    public String formatSqlLists(List<String> list) {
+    private String formatSqlLists(List<String> list) {
         String sqlListOfKeywords = "";
 
         for(int i = 0; i < list.size(); i++) {
