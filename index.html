@@ -14,11 +14,17 @@
 			<div id="middle_div">
 				<div class="subheader_div">
 					<h2>Ellen Louie: HerNews</h2>
-					<img src="Ellen_Louie.jpg" width="25%">
+					<img src="Ellen_Louie.jpg" width="35%">
 				</div>
 				<div id="inside_div"> 
 					<p>
-						Project description goes here.
+						Between school, work, and extracurricular activities, I have found it difficult to regularly stay informed of news relating to women's issues, and I have noticed that my female friends and family have a similar struggle. Unfortunately, big news organizations do not make this any easier because users have to dig for content related to women.  While some organizations have absolutely no order women's news, some do provide topic pages.  However, these topic pages are often hidden within a website so that to find it, a user is forced to search.  This ends up wasting a lot of time, which typically a busy person cannot spare in their everyday life.  On the other hand, a user could try a website that caters specifically to women, but once again they would end up searching for quality content amid stereotypes of what people think women would want to read about like weddings, divorce, or style.  
+						<br>
+						<br>
+						This problem of having to search for quality news articles related to women's issues is what my application, HerNews, aims to solve.  HerNews is a Java desktop RSS reader that displays only news related to women, therefore eliminating the searching a user would normally have to do.  All the user needs to do is input the URL of the RSS feed, and the application filters out any news unrelated to women.  HerNews does this filtering by implementing a machine learning algorithm, J48, which builds a decision tree based off of a training set I composed of 100 articles.  The articles in the training set are labeled as either related to women or not so that the algorithm can learn what words in the articles are especially relevant to each category and use those to classify the unlabeled articles from the RSS feed.  
+						<br>
+						<br>
+						One of my challenges was to try and pick a representative selection of articles for the training set.  No matter how hard I tried, there is still likely some unconscious bias, and that was the motivation behind HerNews' user classification feature.  If the user finds that the list of articles being output by the application is not to their liking (e.g. they want to focus on a particular issue like reproductive rights or there are some articles unrelated to women) they can report those through this feature so that over time the user can tailor the application to suit their specific needs and interests.  And if the user feels really passionate about an issue they are reading about in an article, they can click the 'Take Action' button next to it.  This button will query a MySQL database of nonprofit organizations and return a list related to the issue area of the article.  The list will link to each organization's webpage so that the user can read more, get involved, or donate, whatever they feel inclined to do.
 					</p>
 					<p>
 						<strong>Bio:</strong>
