@@ -1,91 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a335651-2514-4e56-b3de-472a0cdd9bf5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/4.tree" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/invalidArchivesCache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.contributions.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.contributors.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.extraData.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.mainData.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.manager/.fileTableLock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.namespaces.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.orphans.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.table.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/1266672681677.target/.lazy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/1266672681677.target/.state" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.pde.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.views.log.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.debug.ui/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ltk.ui.refactoring/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.cache/clean-cache.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.manager/.fileTable.7" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.extensions/.manager/.fileTable.8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.local_targets/1445119074232.target" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/.local_targets/1445119089751.target" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/1266672681677.target/.pluginInfo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/Launch RSSOwl 2.0/1445124129550.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/Launch RSSOwl 2.0/config.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/Launch RSSOwl 2.0/dev.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.core/Launch RSSOwl 2.0/org.eclipse.update/platform.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.pde.ui/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.views.log/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.metadata/version.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../newspaper_text_extraction.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../newspaperdemo.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../newspapernlp.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/boilerpipe_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_0_8_bin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/nekohtml_1_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/slf4j_api_1_7_19.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/stanford_ner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/weka.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/xerces_2_9_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HerNews.iml" afterPath="$PROJECT_DIR$/HerNews.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/labeledarticles.csv" afterPath="$PROJECT_DIR$/labeledarticles.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsfeed.arff" afterPath="$PROJECT_DIR$/newsfeed.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Article.java" afterPath="$PROJECT_DIR$/src/models/Article.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Feed.java" afterPath="$PROJECT_DIR$/src/models/Feed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Nonprofit.java" afterPath="$PROJECT_DIR$/src/models/Nonprofit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/women-train.arff" afterPath="$PROJECT_DIR$/women-train.arff" />
-    </list>
+    <list default="true" id="2a335651-2514-4e56-b3de-472a0cdd9bf5" name="Default" comment="" />
     <ignored path="HerNews.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -904,12 +820,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1462198258147</updated>
-      <workItem from="1462198259696" duration="6114000" />
+      <workItem from="1462198259696" duration="6315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6114000" />
+    <option name="totallyTimeSpent" value="6315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="23" width="1246" height="729" extended-state="0" />
