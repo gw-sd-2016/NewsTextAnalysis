@@ -342,7 +342,7 @@ public class UserInterface extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest(e9 -> {
+        primaryStage.setOnCloseRequest(e10 -> {
             boolean result1 = new File("newsfeed.arff").delete();
             boolean result2 = new File("labeledarticles.csv").delete();
         });

@@ -5,11 +5,11 @@ package models;
  */
 public class Article {
 
-    String title;
-    String description;
-    String link;
-    String author;
-    String pubDate;
+    private String title;
+    private String description;
+    private String link;
+    private String author;
+    private String pubDate;
 
     /*--- GET & SET TITLE ---*/
 

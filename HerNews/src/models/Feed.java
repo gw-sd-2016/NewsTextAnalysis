@@ -8,13 +8,13 @@ import java.util.List;
  */
 public class Feed {
 
-    final String title;
-    final String link;
-    final String description;
-    final String copyright;
-    final String pubDate;
+    private String title;
+    private String link;
+    private String description;
+    private String copyright;
+    private String pubDate;
 
-    final List<Article> articles = new ArrayList<>();
+    private List<Article> articles = new ArrayList<>();
 
     public Feed(String title, String link, String description, String copyright, String datePublished) {
         this.title = title;

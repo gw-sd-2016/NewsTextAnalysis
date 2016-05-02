@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="88" bundleSource="org.eclipse.swt.motif.aix.ppc;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="89" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="110" bundleSource="org.eclipse.update.configurator;version=&quot;3.2.201.R34x_v20080819&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="111" class="org.eclipse.update.internal.configurator.ConfigurationActivator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="112" bundleSource="org.eclipse.update.core.linux;version=&quot;3.2.1.R34x_v20081024&quot;" localization="plugin" name="%fragmentNameLinux" provider="%providerName"/>
+	<bundle bundleID="113" localization="plugin" name="%fragmentNameLinux" provider="%providerName"/>
+	<bundle bundleID="114" bundleSource="org.eclipse.update.core.win32;version=&quot;3.2.100.v20080107&quot;" localization="plugin" name="%fragmentNameWin" provider="%providerName"/>
+	<bundle bundleID="115" localization="plugin" name="%fragmentNameWin" provider="%providerName"/>
+	<bundle bundleID="116" class="org.eclipse.update.internal.core.UpdateCore" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="90" bundleSource="org.eclipse.swt.motif.hpux.ia64_32;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="117" class="org.eclipse.update.internal.scheduler.UpdateSchedulerPlugin" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="91" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="118" class="org.eclipse.update.internal.ui.UpdateUI" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="92" bundleSource="org.eclipse.swt.win32.win32.x86;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="119" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="junit.jar"/>
+	</bundle>
+	<bundle bundleID="93" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="94" bundleSource="org.eclipse.swt.win32.win32.x86_64;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="95" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="96" bundleSource="org.eclipse.swt.wpf.win32.x86;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="97" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="10" class="org.eclipse.core.internal.databinding.Activator" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="98" hasExtensibleAPI="true" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="11" bundleSource="org.eclipse.core.expressions;version=&quot;3.4.1.r342_v20081203-0800&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="99" bundleSource="org.eclipse.ui.carbon;version=&quot;4.0.0.I20080610-1200&quot;;roots:=&quot;.&quot;" localization="fragment-carbon" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="12" class="org.eclipse.core.internal.expressions.ExpressionPlugin" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="13" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="14" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="15" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="16" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="17" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="18" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="19" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="1" bundleSource="com.ibm.icu.base;version=&quot;3.8.1.v20080530&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="2" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="3" bundleSource="org.eclipse.core.commands;version=&quot;3.4.0.I20080509-2000&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="4" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="5" bundleSource="org.eclipse.core.contenttype;version=&quot;3.3.0.v20080604-1400&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="6" class="org.eclipse.core.internal.content.Activator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="7" bundleSource="org.eclipse.core.databinding.beans;version=&quot;1.1.1.M20080827-0800a&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="8" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="9" bundleSource="org.eclipse.core.databinding;version=&quot;1.1.1.M20080827-0800b&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="20" bundleSource="org.eclipse.core.jobs;version=&quot;3.4.1.R34x_v20081128&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="21" class="org.eclipse.core.internal.jobs.JobActivator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="22" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="23" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="24" class="org.eclipse.core.internal.net.Activator" localization="plugin" name="%PLUGIN_NAME" provider="%PLUGIN_PROVIDER"/>
+	<bundle bundleID="25" localization="plugin" name="%win32FragmentName" provider="%providerName"/>
+	<bundle bundleID="26" bundleSource="org.eclipse.core.runtime.compatibility.auth;version=&quot;3.2.100.v20070502&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="27" class="org.eclipse.core.internal.runtime.auth.Activator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="28" bundleSource="org.eclipse.core.runtime;version=&quot;3.4.0.v20080512&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="29" class="org.eclipse.core.internal.runtime.PlatformActivator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="30" bundleSource="org.eclipse.equinox.app;version=&quot;1.1.0.v20080421-2006&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="31" class="org.eclipse.equinox.internal.app.Activator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="32" bundleSource="org.eclipse.equinox.common;version=&quot;3.4.0.v20080421-2006&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="33" class="org.eclipse.core.internal.runtime.Activator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="34" localization="launcher.carbon.macosx" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="35" localization="launcher.cocoa.macosx.x86_64" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="36" localization="launcher.cocoa.macosx" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="37" localization="launcher.gtk.aix.ppc64" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="38" localization="launcher.gtk.aix.ppc" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="39" localization="launcher.gtk.hpux.ia64_32" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="40" localization="launcher.gtk.linux.ppc64" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="41" localization="launcher.gtk.linux.s390" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="42" localization="launcher.gtk.linux.s390x" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="43" localization="launcher.gtk.linux.x86" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="44" localization="launcher.gtk.linux.x86_64" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="45" localization="launcher.gtk.solaris.sparc" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="46" localization="launcher.gtk.solaris.x86" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="47" localization="launcher.win32.win32.x86" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="48" localization="launcher.win32.win32.x86_64" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="49" localization="launcher" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="50" bundleSource="org.eclipse.equinox.preferences;version=&quot;3.2.201.R34x_v20080709&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="51" class="org.eclipse.core.internal.preferences.Activator" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="52" bundleSource="org.eclipse.equinox.registry;version=&quot;3.4.0.v20080516-0950&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="53" class="org.eclipse.core.internal.registry.osgi.Activator" hasExtensibleAPI="true" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="runtime_registry_compatibility.jar"/>
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="54" bundleSource="org.eclipse.equinox.security.macosx;version=&quot;1.0.0.v20080602-2000&quot;;roots:=&quot;.&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="55" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="56" bundleSource="org.eclipse.equinox.security.win32.x86;version=&quot;1.0.0.v20080529-1600&quot;;roots:=&quot;.&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="57" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="58" class="org.eclipse.equinox.internal.security.auth.AuthPlugin" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="59" bundleSource="org.eclipse.equinox.simpleconfigurator;version=&quot;1.0.0.v20080604&quot;;roots:=&quot;.&quot;" localization="plugin" name="%bundleName" provider="%providerName"/>
+	<bundle bundleID="60" class="org.eclipse.equinox.internal.simpleconfigurator.Activator" localization="plugin" name="%bundleName" provider="%providerName"/>
+	<bundle bundleID="61" bundleSource="org.eclipse.help;version=&quot;3.3.102.v20081014_34x&quot;;roots:=&quot;.&quot;" localization="plugin" name="%help_plugin_name" provider="%providerName"/>
+	<bundle bundleID="62" class="org.eclipse.help.internal.HelpPlugin" localization="plugin" name="%help_plugin_name" provider="%providerName"/>
+	<bundle bundleID="63" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="64" bundleSource="org.eclipse.jdt.launching.macosx;version=&quot;3.1.100.v20080422&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="65" class="org.eclipse.jdt.internal.launching.macosx.MacOSXLaunchingPlugin" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="66" bundleSource="org.eclipse.jface.databinding;version=&quot;1.2.1.M20080827-0800a&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="67" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="68" bundleSource="org.eclipse.jface;version=&quot;3.4.2.M20090107-0800&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="69" class="org.eclipse.jface.internal.JFaceActivator" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="70" bundleSource="org.eclipse.osgi;version=&quot;3.4.3.R34x_v20081215-1030&quot;;roots:=&quot;.&quot;" localization="systembundle" name="%systemBundle" provider="%eclipse.org"/>
+	<bundle bundleID="71" class="org.eclipse.osgi.framework.internal.core.SystemBundleActivator" hasExtensibleAPI="true" localization="systembundle" name="%systemBundle" provider="%eclipse.org"/>
+	<bundle bundleID="72" bundleSource="org.eclipse.rcp;version=&quot;3.4.1.R342_v20090205&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="73" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="74" bundleSource="org.eclipse.swt.carbon.macosx;version=&quot;3.7.0.v3735b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="75" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="76" bundleSource="org.eclipse.swt.cocoa.macosx;version=&quot;3.7.0.v3735b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="77" bundleSource="org.eclipse.swt.cocoa.macosx.x86_64;version=&quot;3.7.0.v3735b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="78" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="79" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="100" localization="fragment-carbon" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="101" localization="plugin" name="%name" provider="%provider-name"/>
+	<bundle bundleID="102" class="org.eclipse.ui.internal.net.Activator" localization="plugin" name="%PLUGIN_NAME" provider="%PLUGIN_PROVIDER"/>
+	<bundle bundleID="103" bundleSource="org.eclipse.ui;version=&quot;3.4.2.M20090204-0800&quot;;roots:=&quot;.&quot;" localization="plugin" name="%Plugin.name" provider="%Plugin.providerName"/>
+	<bundle bundleID="104" class="org.eclipse.ui.internal.views.log.Activator" localization="plugin" name="%name" provider="%provider-name"/>
+	<bundle bundleID="105" bundleSource="org.eclipse.ui.win32;version=&quot;3.2.100.v20080408-0800&quot;;roots:=&quot;.&quot;" localization="fragment-win32" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="106" localization="fragment-win32" name="%fragmentName" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="80" bundleSource="org.eclipse.swt.gtk.linux.ppc;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="107" bundleSource="org.eclipse.ui.workbench;version=&quot;3.4.2.M20090127-1700&quot;;roots:=&quot;.&quot;" localization="plugin" name="%pluginName" provider="%providerName"/>
+	<bundle bundleID="81" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="108" class="org.eclipse.ui.internal.WorkbenchPlugin" localization="plugin" name="%pluginName" provider="%providerName">
+		<library name="compatibility.jar"/>
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="82" bundleSource="org.eclipse.swt.gtk.linux.x86;version=&quot;3.7.0.v3735b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="109" class="org.eclipse.ui.internal.UIPlugin" localization="plugin" name="%Plugin.name" provider="%Plugin.providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="83" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="84" bundleSource="org.eclipse.swt.gtk.linux.x86_64;version=&quot;3.7.0.v3735b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="85" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="86" bundleSource="org.eclipse.swt.gtk.solaris.sparc;version=&quot;3.4.1.v3452b&quot;" localization="fragment" name="%fragmentName" provider="%providerName"/>
+	<bundle bundleID="87" localization="fragment" name="%fragmentName" provider="%providerName"/>
+</map>

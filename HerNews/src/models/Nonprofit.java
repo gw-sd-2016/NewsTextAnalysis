@@ -5,8 +5,8 @@ package models;
  */
 public class Nonprofit {
 
-    String name;
-    String donationLink;
+    private String name;
+    private String donationLink;
 
     /*--- GET & SET NAME ---*/
 

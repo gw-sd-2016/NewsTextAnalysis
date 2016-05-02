@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python">
+      <configuration sdkName="" />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -7,12 +12,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-5.0.8-bin" level="project" />
-    <orderEntry type="library" name="nekohtml-1.9.13" level="project" />
-    <orderEntry type="library" name="weka" level="project" />
-    <orderEntry type="library" name="xerces-2.9.1" level="project" />
-    <orderEntry type="library" name="boilerpipe-1.2.0" level="project" />
-    <orderEntry type="library" name="slf4j-api-1.7.19" level="project" />
-    <orderEntry type="library" name="stanford-ner" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
