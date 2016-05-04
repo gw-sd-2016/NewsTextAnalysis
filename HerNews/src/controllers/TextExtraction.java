@@ -95,6 +95,7 @@ public class TextExtraction {
     public List<String> getLocations(String article) {
         LinkedHashMap <String, LinkedHashSet<String>> results = new LinkedHashMap<>();
         String serializedClassifier = "english.all.3class.distsim.crf.ser.gz";
+
         try {
             //deserialize classifier with 3 fields: people, locations, organizations
             CRFClassifier<CoreLabel> classifier = CRFClassifier.getClassifier(serializedClassifier);

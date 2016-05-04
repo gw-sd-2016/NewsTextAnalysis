@@ -10,6 +10,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
+ * Class for machine learning
+ *
  * Created by ellenlouie on 12/31/15.
  */
 public class MachineLearning {
@@ -51,10 +53,11 @@ public class MachineLearning {
         File labeledArticles = new File("labeledarticles.csv");
 
         try {
-            //read in both files
+            //read in training set
             in = new BufferedReader(new FileReader("women-train.arff"));
             Instances train = new Instances(in);
 
+            //read in the RSS newsfeed or "test" set
             in = new BufferedReader(new FileReader("newsfeed.arff"));
             Instances test = new Instances(in);
 
@@ -65,7 +68,7 @@ public class MachineLearning {
             //initialize filter once with training set
             filter.setInputFormat(train);
 
-            //configures filter based on training set and returns word vector & create new test set
+            //configures filter based on training set and returns word vector & creates new test set
             stdTrain = Filter.useFilter(train, filter);
             stdTest = Filter.useFilter(test, filter);
 

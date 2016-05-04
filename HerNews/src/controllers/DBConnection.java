@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Class for connecting to the database and getting nonprofits
+ *
  * Created by ellenlouie on 2/26/16.
  */
 public class DBConnection {

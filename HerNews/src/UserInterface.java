@@ -26,7 +26,7 @@ import java.util.List;
 public class UserInterface extends Application {
 
     //store list of classified articles
-    List<Article> womensArticles = null;
+    private List<Article> womensArticles = null;
 
     @Override //Override the start method in the Application class
     public void start(final Stage primaryStage) {
@@ -98,7 +98,9 @@ public class UserInterface extends Application {
         //store toggle groups of radio buttons
         List<ToggleGroup> listOfGroups = new ArrayList<>();
 
+        //***processing of rss feed: text extraction and machine learning***//
         filter.setOnAction(e1 -> {
+            //clear the stage if user filter a second newsfeed
             donationContainer.getChildren().clear();
             donationBtnContainer.getChildren().clear();
             feedInfo.getChildren().clear();
@@ -191,6 +193,7 @@ public class UserInterface extends Application {
                     Button donationBtn = new Button("Take Action");
                     donationBtnContainer.getChildren().add(donationBtn);
 
+                    //***take action feature: gets nonprofits from database***//
                     donationBtn.setOnAction(e5 -> {
                         Task<List<Nonprofit>> task1 = new Task<List<Nonprofit>>() {
                             @Override
@@ -298,6 +301,7 @@ public class UserInterface extends Application {
             thread.start();
         });
 
+        //***user classification feature: add classified articles to training set***//
         addInstances.setOnAction(e7 -> {
             TextExtraction te = new TextExtraction();
             MachineLearning ml = new MachineLearning();
